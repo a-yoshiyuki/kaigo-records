@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: 1
+  staff_members_id: 1
+  time: 2021-02-02 07:04:57
+  body_temperature: MyString
+  blood_pressure: MyString
+  heart_rate: MyString
+  oxygen: MyString
+
+two:
+  customer_id: 1
+  staff_members_id: 1
+  time: 2021-02-02 07:04:57
+  body_temperature: MyString
+  blood_pressure: MyString
+  heart_rate: MyString
+  oxygen: MyString

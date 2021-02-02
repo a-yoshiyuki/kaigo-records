@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: 1
+  staff_members_id: 1
+  breakfast_main_amount: 1
+  breakfast_side_amount: 1
+  lunch_main_amount: 1
+  lunch_side_amount: 1
+  dinner_main_amount: 1
+  dinner_side_amount: 1
+  water_amount: 1
+
+two:
+  customer_id: 1
+  staff_members_id: 1
+  breakfast_main_amount: 1
+  breakfast_side_amount: 1
+  lunch_main_amount: 1
+  lunch_side_amount: 1
+  dinner_main_amount: 1
+  dinner_side_amount: 1
+  water_amount: 1
