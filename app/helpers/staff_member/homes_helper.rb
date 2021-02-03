@@ -1,0 +1,2 @@
+module StaffMember::HomesHelper
+end
