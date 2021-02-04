@@ -10,6 +10,27 @@
   </head>
 
   <body>
+    <header class="navbar navbar-inverse">
+      <div class="container">
+        <nav class="nav navbar-nav navbar-left">
+          <h3 class="title">Kaigo records</h3>
+        </nav>
+
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <% if admin_signed_in? %>
+              <li><%=link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"btn btn-info btn-block font-color" %></li>
+
+            <% elsif staff_member_signed_in? %>
+              <li><%=link_to "ログアウト", destroy_staff_member_session_path, method: :delete, class:"btn btn-info btn-block font-color" %></li>
+
+            <% else %>
+
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>
