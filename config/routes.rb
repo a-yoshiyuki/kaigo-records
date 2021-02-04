@@ -1,4 +1,42 @@
 Rails.application.routes.draw do
+
+  root to: 'starts#top'
+  namespace :admin do
+    root 'homes#top'
+    get '/admins/sign_out' => 'devise/sessions#destroy'
+  end
+
+  namespace :admin do
+    resources :customers, except: [:destroy]
+    get :list
+    patch :exit
+  end
+
+  namespace :admin do
+    resources :staff_members
+  end
+
+  namespace :staff_member do
+    root 'homes#top'
+    get '/admins/sign_out' => 'devise/sessions#destroy'
+  end
+
+  namespace :staff_member do
+    resources :customers, only: [:index, :show]
+  end
+
+  namespace :staff_member do
+    resources :progress_records
+  end
+
+  namespace :staff_member do
+    resources :vital_records
+  end
+
+  namespace :staff_member do
+    resources :meal_records, only: [:index, :show, :new, :update]
+  end
+
     devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
