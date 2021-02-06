@@ -7,4 +7,8 @@ class StaffMember < ApplicationRecord
          has_many :meal_record
          has_many :vital_record
          has_many :progress_record
+
+  def full_name
+    self.first_namel + "　" + self.last_name
+  end
 end

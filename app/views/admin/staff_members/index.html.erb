@@ -1,0 +1,9 @@
+<h2>スタッフ一覧</h2>
+<%= link_to "スタッフアカウント作成", new_staff_member_registration_path %>
+<table>
+  <tbody>
+    <% @staff_members.each do |staff_member| %>
+      <%= staff_member.full_name %>
+    <% end %>
+  </tbody>
+</table>
