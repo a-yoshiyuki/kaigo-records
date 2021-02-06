@@ -30,7 +30,8 @@ class Admin::CustomersController < ApplicationController
   end
 
   def list
-
+    @customers = Customer.page(params[:page]).reverse_order
+    @customer = Customer.new
   end
 
   def exit
