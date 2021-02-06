@@ -1,0 +1,26 @@
+<h2>利用者情報　編集</h2>
+<table>
+  <tbody>
+    <%= form_with model: @customer, url: admin_customer_path, local: true do |customer| %>
+      <tr>
+        <th>
+          氏名
+        </th>
+        <th>
+          <%= customer.text_field :first_name %>
+          <%= customer.text_field :last_name %>
+        </th>
+      </tr>
+      <tr>
+        <th>
+        フリガナ
+        </th>
+        <th>
+          <%= customer.text_field :first_name_kana %>
+          <%= customer.text_field :last_name_kana %>
+        </th>
+      </tr>
+      <%= customer.submit "保存", class:"btn btn-primary col-xs-12" %>
+    <% end %>
+  </tbody>
+</table>
