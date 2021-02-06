@@ -1,2 +1,14 @@
-<h2>利用者一覧</h2>
+<%= link_to "新規登録", new_admin_customer_path %>
 
+<h2>利用者一覧</h2>
+<table>
+  <tbody>
+    <% @customers.each do |customers| %>
+      <%= customers.first_name %>
+      <%= customers.last_name %>
+      <%= link_to "詳細", admin_customer_path %>
+
+    <% end %>
+    <%= paginate @customers %>
+  </tbody>
+</table>
