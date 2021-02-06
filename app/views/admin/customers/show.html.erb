@@ -1,0 +1,22 @@
+<h2>利用者情報　詳細</h2>
+<table>
+  <tr>
+    <th>
+      氏名
+    </th>
+    <th>
+      <%= @customer.first_name %>
+      <%= @customer.last_name %>
+    </th>
+  </tr>
+  <tr>
+    <th>
+      フリガナ
+    </th>
+    <th>
+      <%= @customer.first_name_kana %>
+      <%= @customer.last_name_kana %>
+    </th>
+  </tr>
+  <%= link_to "情報編集", edit_admin_customer_path(@customer) %>
+</table>
