@@ -7,9 +7,12 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :customers, except: [:destroy]
-    get :list
-    patch :exit
+    resources :customers, except: [:destroy] do
+      collection do
+        get :list
+        patch :exit
+      end
+    end
   end
 
   namespace :admin do

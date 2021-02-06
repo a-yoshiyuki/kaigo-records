@@ -1,4 +1,5 @@
 <%= link_to "新規登録", new_admin_customer_path %>
+<%= link_to "過去の利用者一覧", list_admin_customers_path, method: :get %>
 
 <h2>利用者一覧</h2>
 <table>
@@ -6,8 +7,9 @@
     <% @customers.each do |customers| %>
       <%= customers.first_name %>
       <%= customers.last_name %>
-      <%= link_to "詳細", admin_customer_path %>
 
+      <%= link_to "詳細", admin_customer_path(customers) %>
+      <%= link_to "削除" %>
     <% end %>
     <%= paginate @customers %>
   </tbody>
