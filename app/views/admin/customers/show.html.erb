@@ -18,5 +18,13 @@
       <%= @customer.last_name_kana %>
     </th>
   </tr>
+  <tr>
+    <th>
+      在籍ステータス
+    </th>
+    <th>
+      <%= @customer.is_deleted %>
+    </th>
+  </tr>
   <%= link_to "情報編集", edit_admin_customer_path(@customer) %>
 </table>

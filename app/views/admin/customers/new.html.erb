@@ -9,6 +9,14 @@
     セイ<%= customer.text_field :first_name_kana %>
     メイ<%= customer.text_field :last_name_kana %>
 
+  <h5>在籍ステータス</h5>
+    <% Customer.is_deleteds.each do |is_deleted| %>
+      <div class="form-check">
+        <%= customer.radio_button :is_deleted, is_deleted[0], class: "form-check-input" %>
+        <%= customer.label is_deleted[0], class: "form-check-label" %>
+      </div>
+    <% end %>
+
   <%= customer.submit "新規登録", class:"btn btn-primary col-xs-12" %>
 
 <% end %>
