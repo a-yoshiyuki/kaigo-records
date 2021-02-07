@@ -9,6 +9,6 @@ class StaffMember < ApplicationRecord
          has_many :progress_record
 
   def full_name
-    self.first_namel + "　" + self.last_name
+    self.first_name + "　" + self.last_name
   end
 end
