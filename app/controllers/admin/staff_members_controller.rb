@@ -5,7 +5,7 @@ class Admin::StaffMembersController < ApplicationController
   end
 
   def show
-
+    @staff_member = StaffMember.find(params[:id])
   end
 
   def new
@@ -25,7 +25,8 @@ class Admin::StaffMembersController < ApplicationController
   end
 
   def destroy
-
+    @staff_member = StaffMember.find(params[:id])
+    @staff_member.destroy
   end
 
   private
