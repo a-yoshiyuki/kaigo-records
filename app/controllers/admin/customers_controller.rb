@@ -1,7 +1,7 @@
 class Admin::CustomersController < ApplicationController
 
   def index
-    @customers = Customer.page(params[:page]).reverse_order
+    @customers = Customer.where.not(is_deleted: 3)
     @customer = Customer.new
   end
 
@@ -30,7 +30,7 @@ class Admin::CustomersController < ApplicationController
   end
 
   def list
-    @customers = Customer.page(params[:page]).reverse_order
+    @customers = Customer.where(is_deleted: 3).page(params[:page]).reverse_order
     @customer = Customer.new
   end
 

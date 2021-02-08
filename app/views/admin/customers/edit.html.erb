@@ -25,10 +25,15 @@
           在籍ステータス
         </th>
       　<th>
-      　  
+      　   <% Customer.is_deleteds.each do |is_deleted| %>
+        　   <div class="form-check">
+        　     <%= customer.radio_button :is_deleted, is_deleted[0], class: "form-check-input" %>
+        　     <%= customer.label is_deleted[0], class: "form-check-label" %>
+        　   </div>
+          <% end %>
       　</th>
       </tr>
-      <%= customer.submit "保存", class:"btn btn-primary col-xs-12" %>
+      <%= customer.submit "保存", class:"btn btn-primary" %>
     <% end %>
   </tbody>
 </table>

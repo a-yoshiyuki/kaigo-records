@@ -26,5 +26,5 @@
       <%= @customer.is_deleted %>
     </th>
   </tr>
-  <%= link_to "情報編集", edit_admin_customer_path(@customer) %>
+  <%= link_to "情報編集", edit_admin_customer_path(@customer), data: {"turbolinks" => false} %>
 </table>
