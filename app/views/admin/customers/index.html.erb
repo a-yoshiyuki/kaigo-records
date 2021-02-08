@@ -5,8 +5,7 @@
 <table>
   <tbody>
     <% @customers.each do |customers| %>
-      <%= customers.first_name %>
-      <%= customers.last_name %>
+      <%= customers.full_name %>
       <%= customers.is_deleted %>
 
       <%= link_to "詳細", admin_customer_path(customers) %>
