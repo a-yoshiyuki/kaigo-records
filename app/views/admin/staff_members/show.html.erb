@@ -51,6 +51,6 @@
       </th>
     </tr>
   </tbody>
-  <%= link_to "情報編集", edit_admin_staff_member_path(@staff_member) %>
+  <%= link_to "情報編集", edit_admin_staff_member_path(@staff_member), data: {"turbolinks" => false} %>
   <%= link_to "アカウント削除", admin_staff_member_path(@staff_member), method: :delete %>
 </table>

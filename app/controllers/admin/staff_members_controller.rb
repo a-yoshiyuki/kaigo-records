@@ -21,12 +21,15 @@ class Admin::StaffMembersController < ApplicationController
   end
 
   def update
-
+    @staff_member = StaffMember.find(params[:id])
+    @staff_member.update(staff_member_params)
+    redirect_to admin_staff_member_path(@staff_member)
   end
 
   def destroy
     @staff_member = StaffMember.find(params[:id])
     @staff_member.destroy
+    redirect_to admin_staff_members_path
   end
 
   private

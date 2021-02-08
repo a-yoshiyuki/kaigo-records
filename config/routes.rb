@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'session/exit'
   root to: 'starts#top'
   namespace :admin do
     root 'homes#top'
