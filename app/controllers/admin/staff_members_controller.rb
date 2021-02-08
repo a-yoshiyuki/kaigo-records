@@ -17,7 +17,7 @@ class Admin::StaffMembersController < ApplicationController
   end
 
   def edit
-
+    @staff_member = StaffMember.find(params[:id])
   end
 
   def update

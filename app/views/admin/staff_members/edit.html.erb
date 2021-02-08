@@ -1,0 +1,58 @@
+<h2>スタッフ情報　編集</h2>
+<table>
+  <tbody>
+    <%= form_with model: @staff_member, url: admin_staff_member_path, local: true do |staff_member| %>
+      <tr>
+        <th>
+          氏名
+        </th>
+        <th>
+          姓<%= staff_member.text_field :first_name %>
+          名<%= staff_member.text_field :last_name %>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          フリガナ
+        </th>
+        <th>
+          セイ<%= staff_member.text_field :first_name_kana %>
+          メイ<%= staff_member.text_field :last_name_kana %>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          郵便番号
+        </th>
+        <th>
+          <%= staff_member.text_field :postal_code %>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          住所
+        </th>
+        <th>
+          <%= staff_member.text_field :address %>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          メールアドレス
+        </th>
+        <th>
+          <%= staff_member.text_field :email %>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          電話番号
+        </th>
+        <th>
+          <%= staff_member.text_field :telephone_number %>
+        </th>
+      </tr>
+      <%= staff_member.submit "変更", class:"btn btn-primary" %>
+    <% end %>
+  </tbody>
+</table>
