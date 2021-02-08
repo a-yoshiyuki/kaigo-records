@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
 
   namespace :staff_member do
-    root 'homes#top'
+    root 'customers#index'
     get '/admins/sign_out' => 'devise/sessions#destroy'
   end
 
