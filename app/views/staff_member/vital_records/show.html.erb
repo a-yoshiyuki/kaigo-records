@@ -1,0 +1,26 @@
+<h2><%= @customer.full_name %>様　バイタル記録</h2>
+<h4><%= Date.today %></h4>
+
+<%= link_to "過去のバイタル記録", staff_member_vital_records_path(@customer) %>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>計測時間</th>
+      <th>体温</th>
+      <th>血圧</th>
+      <th>心拍数</th>
+      <th>SPO₂</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th><%#= @vital_records.time %></th>
+      <th><%#= @vital_records.body_temperature %></th>
+      <th><%#= @vital_records.blood_pressure_high %>/<%#= @vital_records.blood_pressure_low %></th>
+      <th><%#= @vital_records.oxygen %></th>
+    </tr>
+  </tbody>
+  <%= link_to "新規入力", new_staff_member_vital_record_path(@customer) %>
+  
+</table>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_07_103442) do
+ActiveRecord::Schema.define(version: 2021_02_09_080627) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -81,11 +81,12 @@ ActiveRecord::Schema.define(version: 2021_02_07_103442) do
     t.integer "staff_members_id", null: false
     t.time "time", null: false
     t.string "body_temperature", null: false
-    t.string "blood_pressure", null: false
     t.string "heart_rate", null: false
     t.string "oxygen", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "blood_pressure_high", null: false
+    t.string "blood_pressure_low", null: false
   end
 
 end
