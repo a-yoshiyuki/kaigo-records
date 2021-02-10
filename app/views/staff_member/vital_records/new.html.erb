@@ -1,1 +1,25 @@
 <h2>バイタル記録　入力</h2>
+
+<%= form_with model: @vital_record, url: staff_member_vital_records_path, local: true do |vital_record| %>
+    <%= vital_record.label :計測時間, class: 'control-label' %>
+    <%= vital_record.time_select :time, class: 'form-control' %>
+
+    <%= vital_record.label :体温, class: 'control-label' %>
+    <%= vital_record.text_field :body_temperature, size: 3 %>
+    ℃
+
+    <%= vital_record.label :血圧, class: 'control-label' %>
+    <%= vital_record.text_field :blood_pressure_high, size: 3 %>
+    ／
+    <%= vital_record.text_field :blood_pressure_low, size: 3 %>
+
+    <%= vital_record.label :心拍数, class: 'control-label' %>
+    <%= vital_record.text_field :heart_rate, size: 3 %>
+
+    <%= vital_record.label :SPO₂, class: 'control-label' %>
+    <%= vital_record.text_field :oxygen, size: 3 %>
+    ％
+
+    <%= vital_record.submit "バイタル入力", class:"btn btn-primary" %>
+
+<% end %>

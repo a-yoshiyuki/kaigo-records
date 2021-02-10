@@ -2,7 +2,7 @@ class StaffMember::VitalRecordsController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    #@vital_record = VitalRecord.find(params[:id])
+    @vital_records = VitalRecord.all.order(id: "DESC")
   end
 
   def new
@@ -10,9 +10,9 @@ class StaffMember::VitalRecordsController < ApplicationController
   end
 
   def create
-    @vital_record = VitalRecord.new
-    @customer.save
-    redirect_to staff_member_vital_record_path(@customer)
+    @vital_record = VitalRecord.new(vital_record_params)
+    @vital_record.save
+    redirect_to staff_member_vital_record_path(@vital_record)
   end
 
   def edit

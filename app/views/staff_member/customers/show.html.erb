@@ -1,5 +1,22 @@
 <h2><%= @customer.full_name %>様</h2>
 <h4><%= Date.today %></h4>
-<%= link_to "詳細", staff_member_vital_record_path(@customer) %>
-<%= link_to "入力", staff_member_vital_record_path(@customer) %>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>計測時間</th>
+      <th>体温</th>
+      <th>血圧</th>
+      <th>心拍数</th>
+      <th>SPO₂</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th><%= @vital_record.time %></th>
+      <th><%= @vital_record.body_temperature %></th>
+      <th><%= @vital_record.blood_pressure_high %>/<%= @vital_record.blood_pressure_low %></th>
+      <th><%= @vital_record.oxygen %></th>
+    </tr>
+  </tbody>
+</table>
 

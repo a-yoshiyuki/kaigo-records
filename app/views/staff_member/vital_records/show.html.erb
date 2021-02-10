@@ -14,13 +14,15 @@
     </tr>
   </thead>
   <tbody>
+    <% @vital_records.first(5).each do |vital_record| %>
     <tr>
-      <th><%#= @vital_record.time %></th>
-      <th><%#= @vital_record.body_temperature %></th>
-      <th><%#= @vital_record.blood_pressure_high %>/<%#= @vital_records.blood_pressure_low %></th>
-      <th><%#= @vital_record.oxygen %></th>
+      <th><%= vital_record.time %></th>
+      <th><%= vital_record.body_temperature %></th>
+      <th><%= vital_record.blood_pressure_high %>/<%= vital_record.blood_pressure_low %></th>
+      <th><%= vital_record.oxygen %></th>
     </tr>
+    <% end %>
   </tbody>
-  <%= link_to "新規入力", new_staff_member_vital_record_path(@customer) %>
+  <%= link_to "新規入力", new_staff_member_vital_record_path %>
 
 </table>

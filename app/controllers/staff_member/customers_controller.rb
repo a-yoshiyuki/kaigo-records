@@ -7,6 +7,7 @@ class StaffMember::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
+    @vital_record = VitalRecord.new
   end
 
   private
