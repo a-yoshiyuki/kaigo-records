@@ -2,10 +2,11 @@ class StaffMember::VitalRecordsController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    #@vital_records = VitalRecord.find(params[:id])
+    @vital_record = VitalRecord.find(params[:id])
   end
 
   def new
+    @customer = Customer.find(params[:id])
     @vital_record = VitalRecord.new
   end
 
@@ -32,7 +33,7 @@ class StaffMember::VitalRecordsController < ApplicationController
 
   private
     def vital_record_params
-      params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana)
+      params.require(:vital_record).permit(:customer_id, :time, :body_temperature, :heart_rate, :oxygen, :blood_pressure_high, :blood_pressure_low)
     end
 
 end
