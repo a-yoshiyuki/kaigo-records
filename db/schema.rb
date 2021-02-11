@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_10_001221) do
+ActiveRecord::Schema.define(version: 2021_02_11_124552) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_02_10_001221) do
 
   create_table "meal_records", force: :cascade do |t|
     t.integer "customer_id", null: false
-    t.integer "staff_members_id", null: false
+    t.integer "staff_member_id", null: false
     t.integer "breakfast_main_amount", default: 0, null: false
     t.integer "breakfast_side_amount", default: 0, null: false
     t.integer "lunch_main_amount", default: 0, null: false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2021_02_10_001221) do
 
   create_table "progress_records", force: :cascade do |t|
     t.integer "customer_id", null: false
-    t.integer "staff_members_id", null: false
+    t.integer "staff_member_id", null: false
     t.time "time", null: false
     t.text "detail", null: false
     t.datetime "created_at", null: false
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2021_02_10_001221) do
 
   create_table "vital_records", force: :cascade do |t|
     t.integer "customer_id", null: false
-    t.integer "staff_members_id", null: false
+    t.integer "staff_member_id", null: false
     t.time "time", null: false
     t.string "body_temperature", default: "0", null: false
     t.string "heart_rate", default: "0", null: false

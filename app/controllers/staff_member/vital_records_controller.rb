@@ -11,11 +11,10 @@ class StaffMember::VitalRecordsController < ApplicationController
 
   def create
     @vital_record = VitalRecord.new(vital_record_params)
-    @vital_record.staff_members_id = current_staff_member.id
+    @vital_record.staff_member = current_staff_member
     @vital_record.save
 
     @customer = Customer.find(vital_record_params[:customer_id])
-    binding.pry
     redirect_to staff_member_vital_record_path(@customer.id)  #vital_record_params[:customer_id])
   end
 

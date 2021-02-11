@@ -1,0 +1,22 @@
+<h2><%= @customer.full_name %>様　食事量記録</h2>
+<h4><%= Date.today %></h4>
+
+<%= link_to "過去の食事量記録", staff_member_meal_records_path(@customer) %>
+
+<table class="table">
+  <thead class="table table-bordered">
+    <tr>
+      <th>朝食</th>
+      <th>昼食</th>
+      <th>夕食</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @meal_records.first(3).each do |meal_record| %>
+    <tr>
+      <td><%= breakfast_main_amount %>／<%= breakfast_side_amount %></td>
+      <td><%= lunch_main_amount %>／<%= lunch_side_amount %></td>
+      <td><%= dinner_main_amount %>／<%= dinner_side_amount %></td>
+    </tr>
+    <% end %>
+  </tbody>

@@ -5,7 +5,7 @@ class StaffMember < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          has_many :meal_record
-         has_many :vital_record
+         has_many :vital_records
          has_many :progress_record
 
   def full_name

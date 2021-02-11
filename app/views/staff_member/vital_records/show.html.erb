@@ -16,10 +16,10 @@
   <tbody>
     <% @vital_records.first(5).each do |vital_record| %>
     <tr>
-      <th><%= vital_record.time %></th>
-      <th><%= vital_record.body_temperature %></th>
-      <th><%= vital_record.blood_pressure_high %>/<%= vital_record.blood_pressure_low %></th>
-      <th><%= vital_record.oxygen %></th>
+      <td><%= vital_record.time %></td>
+      <td><%= vital_record.body_temperature %></td>
+      <td><%= vital_record.blood_pressure_high %>/<%= vital_record.blood_pressure_low %></td>
+      <td><%= vital_record.oxygen %></td>
     </tr>
     <% end %>
   </tbody>
