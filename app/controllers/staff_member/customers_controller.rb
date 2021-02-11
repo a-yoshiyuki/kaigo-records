@@ -7,7 +7,7 @@ class StaffMember::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @vital_record = VitalRecord.new
+    @vital_record = VitalRecord.last
   end
 
   private

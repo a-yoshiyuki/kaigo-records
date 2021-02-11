@@ -1,8 +1,8 @@
 class Customer < ApplicationRecord
 
-  has_many :progress_record
-  has_many :vital_record
-  has_many :meal_record
+  has_many :progress_records
+  has_many :vital_records
+  has_many :meal_records
 
   enum is_deleted: { 利用中: 0, 入院中: 1, 退所: 3 }
 

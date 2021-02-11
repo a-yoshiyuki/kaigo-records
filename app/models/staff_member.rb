@@ -4,9 +4,9 @@ class StaffMember < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         has_many :meal_record
+         has_many :meal_records
          has_many :vital_records
-         has_many :progress_record
+         has_many :progress_records
 
   def full_name
     self.first_name + "　" + self.last_name
