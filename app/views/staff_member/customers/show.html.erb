@@ -13,9 +13,9 @@
   <tbody>
     <tr>
       <td><%= @vital_record.time.strftime('%H:%M') %></td>
-      <td><%= @vital_record.body_temperature %></td>
-      <td><%= @vital_record.blood_pressure_high %>/<%= @vital_record.blood_pressure_low %></td>
-      <td><%= @vital_record.oxygen %></td>
+      <td><%= @vital_record.body_temperature %>℃</td>
+      <td><%= @vital_record.blood_pressure_high %>／<%= @vital_record.blood_pressure_low %></td>
+      <td><%= @vital_record.oxygen %>％</td>
     </tr>
   </tbody>
 </table>
