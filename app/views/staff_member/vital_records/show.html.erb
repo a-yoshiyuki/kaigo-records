@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @vital_records.first(5).each do |vital_record| %>
+    <% @vital_records.each do |vital_record| %>
     <tr>
       <td><%= vital_record.time.strftime('%H:%M') %></td>
       <td><%= vital_record.body_temperature %></td>

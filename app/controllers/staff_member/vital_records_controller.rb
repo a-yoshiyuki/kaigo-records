@@ -2,7 +2,7 @@ class StaffMember::VitalRecordsController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @vital_records = VitalRecord.all.order(id: "DESC")
+    @vital_records = VitalRecord.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).order(id: "DESC")
   end
 
   def new
