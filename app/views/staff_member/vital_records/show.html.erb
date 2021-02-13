@@ -25,5 +25,7 @@
     <% end %>
   </tbody>
   <%= link_to "新規入力", new_staff_member_vital_record_path %>
+  <%= link_to "利用者一覧へ", staff_member_customers_path %>
+  <%= link_to "#{@customer.full_name} 様個人記録へ", staff_member_customer_path(@customer) %>
 
 </table>

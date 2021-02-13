@@ -11,13 +11,25 @@
     </tr>
   </thead>
   <tbody>
+    <% if @vital_record.present? %>
     <tr>
       <td><%= @vital_record.time.strftime('%H:%M') %></td>
       <td><%= @vital_record.body_temperature %>℃</td>
       <td><%= @vital_record.blood_pressure_high %>／<%= @vital_record.blood_pressure_low %></td>
       <td><%= @vital_record.heart_rate %></td>
       <td><%= @vital_record.oxygen %>％</td>
+      <td><%= link_to "詳細", staff_member_vital_record_path(@customer) %></td>
     </tr>
+    <% else %>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <% end %>
+    <%= link_to "利用者一覧へ", staff_member_customers_path %>
   </tbody>
 </table>
-
