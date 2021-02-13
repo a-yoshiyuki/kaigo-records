@@ -7,7 +7,6 @@
     <% @customers.each do |customers| %>
       <%= customers.full_name %>
       <%= customers.is_deleted %>
-
       <%= link_to "詳細", admin_customer_path(customers) %>
     <% end %>
   </tbody>
