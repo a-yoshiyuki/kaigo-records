@@ -27,11 +27,12 @@ class StaffMember::VitalRecordsController < ApplicationController
   def update
     @vital_record = VitalRecord.find(params[:id])
     @vital_record.update(vital_record_params)
-    redirect_to staff_member_vital_record_path(@customer)
+    redirect_to staff_member_vital_record_path(@customer.id)
   end
 
   def index
-
+    @customer = Customer.find(vital_record_params[:customer_id])
+    @vital_record = @customer.vital_record.all
   end
 
   def destroy
