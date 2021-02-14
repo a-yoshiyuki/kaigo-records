@@ -19,10 +19,15 @@ class StaffMember::VitalRecordsController < ApplicationController
   end
 
   def edit
-
+    @customer = Customer.find(params[:id])
+    @vital_record = VitalRecord.find(params[:id])
+    binding.pry
   end
 
   def update
+    @vital_record = VitalRecord.find(params[:id])
+    @vital_record.update(vital_record_params)
+    redirect_to staff_member_vital_record_path(@customer)
   end
 
   def index

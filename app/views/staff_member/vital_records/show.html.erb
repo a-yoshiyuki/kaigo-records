@@ -11,6 +11,7 @@
       <th>血圧</th>
       <th>心拍数</th>
       <th>SPO₂</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -21,10 +22,10 @@
       <td><%= vital_record.blood_pressure_high %>／<%= vital_record.blood_pressure_low %></td>
       <td><%= vital_record.heart_rate %></td>
       <td><%= vital_record.oxygen %>％</td>
+      <td><%= link_to "編集", edit_staff_member_vital_record_path(@customer) %></td>
     </tr>
     <% end %>
   </tbody>
-  <%= link_to "新規入力", new_staff_member_vital_record_path %>
   <%= link_to "利用者一覧へ", staff_member_customers_path %>
   <%= link_to "#{@customer.full_name} 様個人記録へ", staff_member_customer_path(@customer) %>
 
