@@ -12,6 +12,7 @@
       <th>心拍数</th>
       <th>SPO₂</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -23,6 +24,7 @@
       <td><%= vital_record.heart_rate %></td>
       <td><%= vital_record.oxygen %>％</td>
       <td><%= link_to "編集", edit_staff_member_vital_record_path(vital_record) %></td>
+      <td><%= link_to "削除", staff_member_vital_record_path(vital_record), method: :delete %></td>
     </tr>
     <% end %>
   </tbody>

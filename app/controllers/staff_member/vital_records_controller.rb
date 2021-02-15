@@ -1,8 +1,8 @@
 class StaffMember::VitalRecordsController < ApplicationController
 
   def show
-    @customer = Customer.find(vital_record_params[:id])
-    @vital_records = VitalRecord.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).order(id: "DESC")
+    @customer = Customer.find(params[:id])
+    @vital_records = @customer.vital_records.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).order(id: "DESC")
   end
 
   def new
@@ -13,7 +13,6 @@ class StaffMember::VitalRecordsController < ApplicationController
     @vital_record = VitalRecord.new(vital_record_params)
     @vital_record.staff_member = current_staff_member
     @vital_record.save
-
     @customer = Customer.find(vital_record_params[:customer_id])
     redirect_to staff_member_vital_record_path(@customer.id)  #vital_record_params[:customer_id])
   end
@@ -25,7 +24,7 @@ class StaffMember::VitalRecordsController < ApplicationController
   def update
     @vital_record = VitalRecord.find(params[:id])
     @vital_record.update(vital_record_params)
-    redirect_to staff_member_vital_record_path
+    redirect_to staff_member_vital_record_path(@vital_record.customer)
   end
 
   def index
@@ -34,7 +33,9 @@ class StaffMember::VitalRecordsController < ApplicationController
   end
 
   def destroy
-
+    @vital_record = VitalRecord.find(params[:id])
+    @vital_record.destroy
+    redirect_to staff_member_vital_record_path(@vital_record.customer)
   end
 
   private
