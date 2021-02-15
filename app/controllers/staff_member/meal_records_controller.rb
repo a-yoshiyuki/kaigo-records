@@ -6,7 +6,8 @@ class StaffMember::MealRecordsController < ApplicationController
   end
 
   def edit
-    
+    @customer = Customer.find(params[:customer_id])
+
   end
 
   def update
