@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   end
 
   namespace :staff_member do
-    resources :meal_records, only: [:index, :show, :new, :update]
+    resources :meal_records, only: [:index, :show, :edit, :update]
   end
 
     devise_for :admins, controllers: {

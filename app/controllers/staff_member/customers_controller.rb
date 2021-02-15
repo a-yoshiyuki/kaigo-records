@@ -8,6 +8,7 @@ class StaffMember::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @vital_record = @customer.vital_records.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).last
+    @meal_record = @customer.meal_records.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).last
   end
 
   private

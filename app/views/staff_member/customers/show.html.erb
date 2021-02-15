@@ -1,7 +1,9 @@
 <h2><%= @customer.full_name %>様</h2>
 <h4><%= Date.today %></h4>
 <table class="table">
+  <%= link_to "利用者一覧へ", staff_member_customers_path %>
   <thead class="thead-dark">
+    <h3>バイタル</h3>
     <tr>
       <th>計測時間</th>
       <th>体温</th>
@@ -28,9 +30,40 @@
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
+      <td><%= link_to "詳細", staff_member_vital_record_path(@customer) %></td>
     </tr>
     <% end %>
-    <%= link_to "利用者一覧へ", staff_member_customers_path %>
+  </tbody>
+</table>
+
+<table class="table">
+  <thead class="thead-dark">
+    <h3>食事量・水分量</h3>
+    <tr>
+      <th>朝食</th>
+      <th>昼食</th>
+      <th>夕食</th>
+      <th>水分量</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @meal_record.present? %>
+    <tr>
+      <td><%= @meal_record.breakfast_main_amount %>／<%= @meal_record.breakfast_side_amount %></td>
+      <td><%= @meal_record.lunch_main_amount %>／<%= @meal_record.lunch_side_amount %></td>
+      <td><%= @meal_record.dinner_main_amount %>／<%= @meal_record.dinner_side_amount %></td>
+      <td><%= @meal_record.water_amount %>ｍｌ</td>
+      <td><%= link_to "詳細", staff_member_meal_record_path(@customer) %></td>
+    </tr>
+    <% else %>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><%= link_to "詳細", staff_member_meal_record_path(@customer) %></td>
+    </tr>
+    <% end %>
   </tbody>
 </table>
