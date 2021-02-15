@@ -1,7 +1,7 @@
 <h2><%= @customer.full_name %>様　バイタル記録</h2>
 <h4><%= Date.today %></h4>
 
-<%= link_to "過去のバイタル記録", staff_member_vital_records_path(@customer) %>
+<%= link_to "過去のバイタル記録", staff_member_vital_records_path(@vital_records) %>
 
 <table class="table">
   <thead class="thead-dark">

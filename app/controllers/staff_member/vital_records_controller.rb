@@ -28,8 +28,7 @@ class StaffMember::VitalRecordsController < ApplicationController
   end
 
   def index
-    @customer = Customer.find(vital_record_params[:customer_id])
-    @vital_record = @customer.vital_record.all
+    @vital_records = VitalRecord.page(params[:page]).reverse_order
   end
 
   def destroy
