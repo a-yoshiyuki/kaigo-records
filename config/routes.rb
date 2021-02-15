@@ -34,7 +34,8 @@ Rails.application.routes.draw do
   end
 
   namespace :staff_member do
-    resources :vital_records
+    resources :vital_records, only: [:show, :new, :edit, :create, :update, :destroy]
+    get '/vital_records/customer/:customer_id', to: 'vital_records#index'
   end
 
   namespace :staff_member do

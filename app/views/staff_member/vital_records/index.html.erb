@@ -1,4 +1,4 @@
-<h2><%#= @vital_records.customer.full_name %>様　過去のバイタル記録</h2>
+<h2><%= @customer.full_name %>様　過去のバイタル記録</h2>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -21,6 +21,6 @@
     <% end %>
   </tbody>
   <%= link_to "利用者一覧へ", staff_member_customers_path %>
-  <%#= link_to "#{@customer.full_name} 様個人記録へ", staff_member_customer_path(@customer) %>
+  <%= link_to "#{@customer.full_name} 様個人記録へ", staff_member_customer_path(@customer) %>
 
 </table>
