@@ -1,7 +1,7 @@
 class StaffMember::VitalRecordsController < ApplicationController
 
   def show
-    @customer = Customer.find(params[:id])
+    @customer = Customer.find(vital_record_params[:id])
     @vital_records = VitalRecord.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).order(id: "DESC")
   end
 
@@ -19,15 +19,13 @@ class StaffMember::VitalRecordsController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find(params[:id])
     @vital_record = VitalRecord.find(params[:id])
-    binding.pry
   end
 
   def update
     @vital_record = VitalRecord.find(params[:id])
     @vital_record.update(vital_record_params)
-    redirect_to staff_member_vital_record_path(@customer.id)
+    redirect_to staff_member_vital_record_path
   end
 
   def index

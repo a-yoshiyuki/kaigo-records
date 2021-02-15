@@ -22,7 +22,7 @@
       <td><%= vital_record.blood_pressure_high %>／<%= vital_record.blood_pressure_low %></td>
       <td><%= vital_record.heart_rate %></td>
       <td><%= vital_record.oxygen %>％</td>
-      <td><%= link_to "編集", edit_staff_member_vital_record_path(@customer) %></td>
+      <td><%= link_to "編集", edit_staff_member_vital_record_path(vital_record) %></td>
     </tr>
     <% end %>
   </tbody>

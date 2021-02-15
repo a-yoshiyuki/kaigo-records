@@ -1,6 +1,6 @@
-<h2><%= @customer.full_name %>様　バイタル記録　編集</h2>
+<h2><%= @vital_record.customer.full_name %>様　バイタル記録　編集</h2>
 
-<%= form_with model: [@vital_record, @customer], url: staff_member_vital_record_path, local: true do |vital_record| %>
+<%= form_with model: @vital_record, url: staff_member_vital_record_path, local: true do |vital_record| %>
     <%= vital_record.label :計測時間, class: 'control-label' %>
     <%= vital_record.time_select :time, class: 'form-control' %>
 
