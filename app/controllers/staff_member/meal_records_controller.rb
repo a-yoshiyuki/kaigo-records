@@ -6,15 +6,16 @@ class StaffMember::MealRecordsController < ApplicationController
   end
 
   def new
-    @customer = Customer.find(meal_record_params[:customer_id])
+    @customer = Customer.find(params[:customer_id])
     @meal_record = MealRecord.new
   end
 
   def create
     @meal_record = MealRecord.new(meal_record_params)
     @meal_record.staff_member = current_staff_member
+    @meal_record.customer = Customer.find(params[:customer_id])
     @meal_record.save
-    redirect_to staff_member_meal_record_path(@customer.id)
+    redirect_to staff_member_meal_record_path(@meal_record.customer)
   end
 
   def edit

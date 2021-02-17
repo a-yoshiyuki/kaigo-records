@@ -1,1 +1,24 @@
 <h2><%= @customer.full_name %>様 食事量・水分量記録　入力</h2>
+
+<%= form_with model: @meal_record, url: staff_member_new_staff_member_meal_record_path, method: :post, local: true do |meal_record| %>
+    <%= meal_record.label :朝食, class: 'control-label' %>
+    <%= meal_record.text_field :breakfast_main_amount, size: 3 %>
+    ／
+    <%= meal_record.text_field :breakfast_side_amount, size: 3 %>
+
+    <%= meal_record.label :昼食, class: 'control-label' %>
+    <%= meal_record.text_field :lunch_main_amount, size: 3 %>
+    ／
+    <%= meal_record.text_field :lunch_side_amount, size: 3 %>
+
+    <%= meal_record.label :夕食, class: 'control-label' %>
+    <%= meal_record.text_field :dinner_main_amount, size: 3 %>
+    ／
+    <%= meal_record.text_field :dinner_side_amount, size: 3 %>
+
+    <%= meal_record.label :水分量, class: 'control-label' %>
+    <%= meal_record.text_field :water_amount, size: 3 %>
+
+    <%= meal_record.submit "食事量・水分量入力", class:"btn btn-primary" %>
+
+<% end %>
