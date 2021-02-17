@@ -39,7 +39,9 @@ Rails.application.routes.draw do
   end
 
   namespace :staff_member do
-    resources :meal_records, only: [:index, :show, :edit, :update]
+    resources :meal_records, only: [:show, :edit, :update, :destroy, :index]
+    get '/meal_records/customer/:customer_id', to: 'meal_records#new', as: 'new_staff_member_meal_record'
+    post '/meal_records/customer/:customer_id', to: 'meal_records#create'
   end
 
     devise_for :admins, controllers: {
