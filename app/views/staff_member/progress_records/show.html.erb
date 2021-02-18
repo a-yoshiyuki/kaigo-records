@@ -1,6 +1,8 @@
 <h2><%= @customer.full_name %>様　経過記録</h2>
 <h4><%= Date.today %></h4>
 
+<%= link_to "過去の経過記録", staff_member_path(@customer.id) %>
+
 <table class="table">
   <thead class="table table-bordered">
     <tr>
@@ -10,7 +12,7 @@
       <th></th>
     </tr>
   </thead>
-  <today>
+  <tbody>
     <% @progress_records.each do |progress_record| %>
     <tr>
       <td><%= progress_record.time.strftime('%H:%M') %></td>
@@ -19,4 +21,5 @@
       <td><%= link_to "編集", edit_staff_member_progress_record_path(progress_record) %></td>
     </tr>
     <% end %>
-  </today>
+  </tbody>
+</table>

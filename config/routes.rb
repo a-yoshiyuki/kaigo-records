@@ -31,7 +31,8 @@ Rails.application.routes.draw do
   end
 
   namespace :staff_member do
-    resources :progress_records
+    resources :progress_records, only: [:show, :new, :edit, :create, :update, :destroy]
+    get '/progress_records/customer/:customer_id', to: 'progress_records#index'
   end
 
   namespace :staff_member do

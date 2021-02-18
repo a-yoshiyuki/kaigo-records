@@ -18,12 +18,19 @@ class StaffMember::ProgressRecordsController < ApplicationController
 
 
   def edit
-  end
-
-  def index
+    @progress_record = ProgressRecord.find(params[:id])
   end
 
   def update
+    @progress_record = ProgressRecord.find(params[:id])
+    @progress_record.update(progress_record_params)
+    redirect_to staff_member_progress_record_path(@progress_record.customer)
+  end
+
+
+  def index
+    @customer = Customer.find(params[:customer_id])
+    @progress_records = ProgressRecord.where(customer_id: @customer.id).page(params[:page]).reverse_order
   end
 
   def destroy
