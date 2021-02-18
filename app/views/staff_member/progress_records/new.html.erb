@@ -1,0 +1,18 @@
+<h2><%#= @customer.full_name %>様　経過記録　新規入力</h2>
+
+<%= form_with model: @progress_record, url: staff_member_progress_records_path, local: true do |progress_record| %>
+  <%= progress_record.label :利用者, class: 'control-label' %>
+  <%= progress_record.collection_select :customer_id, Customer.where(is_deleted: 0), :id, :full_name %>
+
+  <%= progress_record.label :時間, class: 'control-label' %>
+  <%= progress_record.time_select :time, class: 'form-control' %>
+
+  <%= progress_record.label :内容, class: 'control-label' %>
+  <%= progress_record.text_area :detail, class: 'form-control' %>
+
+  <%= progress_record.label :記録者, class: 'control-label' %>
+  <%= progress_record.collection_select :staff_member_id, StaffMember.all, :id, :full_name %>
+
+  <%= progress_record.submit "経過記録入力", class:"btn btn-primary" %>
+
+<% end %>
