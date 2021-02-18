@@ -1,6 +1,6 @@
 <h2><%= @customer.full_name %>様　過去のバイタル記録</h2>
 <table class="table">
-  <thead class="thead-dark">
+  <thead class="table table-bordered">
     <tr>
       <th>計測時間</th>
       <th>体温</th>
@@ -12,7 +12,7 @@
   <tbody>
     <% @vital_records.each do |vital_record| %>
     <tr>
-      <td><%= vital_record.created_at.strftime('%Y/%m/%d/%H:%M') %></td>
+      <td><%= vital_record.created_at.strftime('%Y年%m月%d日%H:%M') %></td>
       <td><%= vital_record.body_temperature %></td>
       <td><%= vital_record.blood_pressure_high %>／<%= vital_record.blood_pressure_low %></td>
       <td><%= vital_record.heart_rate %></td>

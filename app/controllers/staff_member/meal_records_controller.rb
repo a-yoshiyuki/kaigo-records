@@ -2,7 +2,7 @@ class StaffMember::MealRecordsController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @meal_records = @customer.meal_records.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).last
+    @meal_records =MealRecord.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).last
   end
 
   def new
@@ -19,7 +19,7 @@ class StaffMember::MealRecordsController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find(params[:customer_id])
+    @customer = Customer.find(params[:id])
     @meal_records = MealRecord.find(params[:id])
   end
 
@@ -30,6 +30,8 @@ class StaffMember::MealRecordsController < ApplicationController
   end
 
   def index
+    @customer = Customer.find(params[:customer_id])
+    @meal_records = MealRecord.where(customer_id: @customer.id).page(params[:page]).reverse_order
   end
 
   def destroy

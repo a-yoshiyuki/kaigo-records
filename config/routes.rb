@@ -37,11 +37,12 @@ Rails.application.routes.draw do
 
   namespace :staff_member do
     resources :vital_records, only: [:show, :new, :edit, :create, :update, :destroy]
-    get '/vital_records/customer/:customer_id', to: 'vital_records#index'
+    get '/vital_records/customer/:customer_id', to: 'vital_records#index', as: 'index_staff_member_vital_record'
   end
 
   namespace :staff_member do
-    resources :meal_records, only: [:show, :edit, :update, :destroy, :index]
+    resources :meal_records, only: [:show, :edit, :update, :destroy]
+    get '/meal_records/index/:customer_id', to: 'meal_records#index', as: 'index_staff_member_meal_record'
     get '/meal_records/customer/:customer_id', to: 'meal_records#new', as: 'new_staff_member_meal_record'
     post '/meal_records/customer/:customer_id', to: 'meal_records#create'
   end

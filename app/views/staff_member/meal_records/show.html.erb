@@ -1,7 +1,7 @@
 <h2><%= @customer.full_name %>様　食事量・水分量記録</h2>
 <h4><%= Date.today %></h4>
 
-<%= link_to "過去の食事量・水分量記録", staff_member_meal_records_path(@meal_records) %>
+<%= link_to "過去の食事量・水分量記録", staff_member_index_staff_member_meal_record_path(@customer) %>
 
 <table class="table">
   <thead class="table table-bordered">
@@ -14,18 +14,16 @@
     </tr>
   </thead>
   <tbody>
-    <% @meal_records.each do |meal_record| %>
     <tr>
-      <td><%= meal_record.breakfast_main_amount %>／<%= meal_record.breakfast_side_amount %></td>
-      <td><%= meal_record.lunch_main_amount %>／<%= meal_record.lunch_side_amount %></td>
-      <td><%= meal_record.dinner_main_amount %>／<%= meal_record.dinner_side_amount %></td>
-      <td><%= meal_record.water_amount %>ｍｌ</td>
-      <td><%= link_to "編集", edit_staff_member_meal_record_path(meal_record) %></td>
+      <td><%= @meal_records.breakfast_main_amount %>／<%= @meal_records.breakfast_side_amount %></td>
+      <td><%= @meal_records.lunch_main_amount %>／<%= @meal_records.lunch_side_amount %></td>
+      <td><%= @meal_records.dinner_main_amount %>／<%= @meal_records.dinner_side_amount %></td>
+      <td><%= @meal_records.water_amount %>ｍｌ</td>
+      <td><%= link_to "編集", edit_staff_member_meal_record_path(@customer) %></td>
     </tr>
-    <% end %>
   </tbody>
   <%= link_to "入力", staff_member_new_staff_member_meal_record_path(@customer.id) %>
-  
+
   <%= link_to "利用者一覧へ", staff_member_customers_path %>
   <%= link_to "#{@customer.full_name} 様個人記録へ", staff_member_customer_path(@customer) %>
 </table>
