@@ -34,6 +34,9 @@ class StaffMember::ProgressRecordsController < ApplicationController
   end
 
   def destroy
+    @progress_record = ProgressRecord.find(params[:id])
+    @progress_record.destroy
+    redirect_to staff_member_progress_record_path(@progress_record.customer)
   end
 
   private
