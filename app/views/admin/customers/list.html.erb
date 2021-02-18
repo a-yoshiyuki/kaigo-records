@@ -1,4 +1,11 @@
 <h2>過去の利用者一覧</h2>
+
+<p>検索</p>
+<%= form_tag(search_admin_customers_path,:method => 'get') do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag 'Search', :name => nil %>
+<% end %>
+
 <% @customers.each do |customer| %>
   <%= link_to admin_customer_path(customer) do %>
     <%= customer.full_name %>

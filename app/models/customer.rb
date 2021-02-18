@@ -14,5 +14,13 @@ class Customer < ApplicationRecord
     self.first_name_kana + "　" + self.last_name_kana
   end
 
+  def self.search(search)
+    if search
+      Customer.where(['content LIKE ?', "%#{search}%"])
+    else
+      Customer.all
+    end
+  end
+
 
 end

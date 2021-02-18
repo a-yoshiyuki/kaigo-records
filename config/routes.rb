@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :customers, except: [:destroy] do
       collection do
         get :list
+        get :search
         patch :exit
       end
     end

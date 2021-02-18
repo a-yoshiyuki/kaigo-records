@@ -1,6 +1,7 @@
 class StaffMember::ProgressRecordsController < ApplicationController
 
   def show
+    @customer = Customer.find(params[:id])
   end
 
   def new
@@ -20,4 +21,9 @@ class StaffMember::ProgressRecordsController < ApplicationController
 
   def destroy
   end
+
+  private
+    def progress_record_params
+      params.require(:progress_record).(:customer_id, :staff_member_id, :time, :detail)
+    end
 end

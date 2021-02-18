@@ -2,6 +2,7 @@
 <h4><%= Date.today %></h4>
 <table class="table">
   <%= link_to "利用者一覧へ", staff_member_customers_path %>
+  <%= link_to "経過記録へ", staff_member_progress_record_path(@customer) %>
   <thead class="thead-dark">
     <h3>バイタル</h3>
     <tr>

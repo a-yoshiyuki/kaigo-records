@@ -35,7 +35,10 @@ class Admin::CustomersController < ApplicationController
   end
 
   def exit
-
+  end
+  
+  def search
+    @customers = Customer.search(params[:search])
   end
 
   private
