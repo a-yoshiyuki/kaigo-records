@@ -1,4 +1,4 @@
-<h2><%= @customer.full_name %>様</h2>
+<h2><%= @meal_records.customer.full_name %>様</h2>
 
 <%= form_with model: @meal_records, url: staff_member_meal_record_path, method: :patch, local: true do |meal_record| %>
     <%= meal_record.label :朝食, class: 'control-label' %>

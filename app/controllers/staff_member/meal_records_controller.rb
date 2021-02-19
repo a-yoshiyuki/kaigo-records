@@ -19,7 +19,6 @@ class StaffMember::MealRecordsController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find(params[:id])
     @meal_records = MealRecord.find(params[:id])
   end
 
