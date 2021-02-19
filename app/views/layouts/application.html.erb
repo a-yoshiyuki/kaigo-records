@@ -24,9 +24,9 @@
               <li><%=link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"btn btn-info btn-block font-color" %></li>
 
             <% elsif staff_member_signed_in? %>
+            <p class="navbar-text"><%= current_staff_member.full_name %>さん、お疲れ様です！</p>
               <li><%=link_to "経過記録入力", new_staff_member_progress_record_path, class:"btn btn-info btn-block font-color" %></li>
               <li><%=link_to "バイタル記録入力", new_staff_member_vital_record_path, class:"btn btn-info btn-block font-color" %></li>
-              <li><%#=link_to "食事記録入力", edit_staff_member_meal_record_path(@meal_records), class:"btn btn-info btn-block font-color" %></li>
               <li><%=link_to "ログアウト", destroy_staff_member_session_path, method: :delete, class:"btn btn-info btn-block font-color" %></li>
 
             <% else %>
