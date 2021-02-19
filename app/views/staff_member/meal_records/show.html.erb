@@ -14,17 +14,25 @@
     </tr>
   </thead>
   <tbody>
-    <%= form_with url: staff_member_meal_record_path do |meal_records| %>
+    <% if @customer.meal_records.present? %>
     <tr>
-      <td><%= meal_records.breakfast_main_amount %>／<%= meal_records.breakfast_side_amount %></td>
-      <td><%= meal_records.lunch_main_amount %>／<%= meal_records.lunch_side_amount %></td>
-      <td><%= meal_records.dinner_main_amount %>／<%= meal_records.dinner_side_amount %></td>
-      <td><%= meal_records.water_amount %>ｍｌ</td>
-    <% end %>
-      <td><%= link_to "編集", edit_staff_member_meal_record_path(@customer) %></td>
+      <td><%= @meal_records.breakfast_main_amount %>／<%= @meal_records.breakfast_side_amount %></td>
+      <td><%= @meal_records.lunch_main_amount %>／<%= @meal_records.lunch_side_amount %></td>
+      <td><%= @meal_records.dinner_main_amount %>／<%= @meal_records.dinner_side_amount %></td>
+      <td><%= @meal_records.water_amount %>ｍｌ</td>
+      <td><%= link_to "追加入力", edit_staff_member_meal_record_path(@meal_records) %></td>
     </tr>
+    <% else %>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><%= link_to "新規入力", staff_member_new_staff_member_meal_record_path(@customer.id) %></td>
+    </tr>
+    <% end %>
+
   </tbody>
-  <%= link_to "入力", staff_member_new_staff_member_meal_record_path(@customer.id) %>
 
   <%= link_to "利用者一覧へ", staff_member_customers_path %>
   <%= link_to "#{@customer.full_name} 様個人記録へ", staff_member_customer_path(@customer) %>
