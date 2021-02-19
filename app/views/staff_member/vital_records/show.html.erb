@@ -21,7 +21,7 @@
       <td><%= vital_record.time.strftime('%H:%M') %></td>
       <td><%= vital_record.body_temperature %></td>
       <td><%= vital_record.blood_pressure_high %>／<%= vital_record.blood_pressure_low %></td>
-      <td><%= vital_record.heart_rate %></td>
+      <td><%= vital_record.heart_rate %>回/分</td>
       <td><%= vital_record.oxygen %>％</td>
       <td><%= link_to "編集", edit_staff_member_vital_record_path(vital_record) %></td>
       <td><%= link_to "削除", staff_member_vital_record_path(vital_record), method: :delete %></td>

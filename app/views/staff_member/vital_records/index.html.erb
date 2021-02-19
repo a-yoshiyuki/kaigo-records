@@ -15,7 +15,7 @@
       <td><%= vital_record.created_at.strftime('%Y年%m月%d日%H:%M') %></td>
       <td><%= vital_record.body_temperature %></td>
       <td><%= vital_record.blood_pressure_high %>／<%= vital_record.blood_pressure_low %></td>
-      <td><%= vital_record.heart_rate %></td>
+      <td><%= vital_record.heart_rate %>回/分</td>
       <td><%= vital_record.oxygen %>％</td>
     </tr>
     <% end %>
