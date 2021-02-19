@@ -25,4 +25,7 @@
     </th>
   </tr>
   <%= link_to "情報編集", edit_admin_customer_path(@customer), data: {"turbolinks" => false} %>
+  <%= link_to "過去の経過記録", staff_member_path(@customer) %>
+  <%= link_to "過去のバイタル記録", staff_member_index_staff_member_vital_record_path(@customer) %>
+  <%= link_to "過去の食事量・水分量記録", staff_member_index_staff_member_meal_record_path(@customer) %>
 </table>

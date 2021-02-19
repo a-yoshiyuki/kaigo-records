@@ -14,11 +14,13 @@
     </tr>
   </thead>
   <tbody>
+    <%= form_with url: staff_member_meal_record_path do |meal_records| %>
     <tr>
-      <td><%= @meal_records.breakfast_main_amount %>／<%= @meal_records.breakfast_side_amount %></td>
-      <td><%= @meal_records.lunch_main_amount %>／<%= @meal_records.lunch_side_amount %></td>
-      <td><%= @meal_records.dinner_main_amount %>／<%= @meal_records.dinner_side_amount %></td>
-      <td><%= @meal_records.water_amount %>ｍｌ</td>
+      <td><%= meal_records.breakfast_main_amount %>／<%= meal_records.breakfast_side_amount %></td>
+      <td><%= meal_records.lunch_main_amount %>／<%= meal_records.lunch_side_amount %></td>
+      <td><%= meal_records.dinner_main_amount %>／<%= meal_records.dinner_side_amount %></td>
+      <td><%= meal_records.water_amount %>ｍｌ</td>
+    <% end %>
       <td><%= link_to "編集", edit_staff_member_meal_record_path(@customer) %></td>
     </tr>
   </tbody>
