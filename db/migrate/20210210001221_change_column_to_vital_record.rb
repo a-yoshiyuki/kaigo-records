@@ -1,6 +1,6 @@
 class ChangeColumnToVitalRecord < ActiveRecord::Migration[5.2]
   def up
-    change_column :vital_records, :time, :time, default: ""
+    change_column :vital_records, :time, :time
     change_column :vital_records, :body_temperature, :string, default: 0
     change_column :vital_records, :heart_rate, :string, default: 0
     change_column :vital_records, :oxygen, :string, default: 0
