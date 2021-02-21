@@ -4,7 +4,7 @@ lock "~> 3.15.0"
 set :application, "kaigo-records"
 set :repo_url, "git@github.com:a-yoshiyuki/kaigo-records.git"
 set :deploy_to, "/home/ec2-user/kaigo-records"
-set :rbenv_ruby, '2.5.7'
+set :rbenv_ruby, '2.6.3'
 set :linked_files, %w{config/master.key .env}
 append :linked_dirs, "log", "public", "tmp"
 
