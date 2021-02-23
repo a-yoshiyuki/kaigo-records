@@ -17,7 +17,7 @@
 @import "bootstrap";
 
 
-.title {
+.nav_title {
   font-family: 'Teko', sans-serif;
   color: white;
 }
@@ -26,7 +26,10 @@
   font-family: 'Stick', sans-serif;
   margin: 3px;
   background: #3CB371;
-  color: #FFF8DC;
+}
+
+.navbar-text {
+  font-family: 'Stick', sans-serif;
 }
 
 body {
@@ -35,6 +38,7 @@ body {
 .main_title {
   font-family: 'Teko', sans-serif;
   text-align: center;
+  font-size: 80px;
   margin: 15px;
   color: #000080;
 }
@@ -43,5 +47,17 @@ body {
   font-family: 'Stick', sans-serif;
   text-align: center;
   margin: 15px;
+  color: #008000;
 }
 
+h2 {
+  font-family: 'Stick', sans-serif;
+}
+
+.field {
+  font-family: 'Stick', sans-serif;
+}
+
+.actions {
+  font-family: 'Stick', sans-serif;
+}

@@ -14,7 +14,7 @@
     <header class="navbar navbar-inverse">
       <div class="container">
         <nav class="nav navbar-nav navbar-left">
-          <h3 class="title">Kaigo records</h3>
+          <h3 class="nav_title">Kaigo records</h3>
         </nav>
 
         <nav>
@@ -26,10 +26,10 @@
                 <li><%=link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"btn btn-info font-color" %></li>
 
               <% elsif staff_member_signed_in? %>
-              <p class="navbar-text"><%= current_staff_member.full_name %>さん、お疲れ様です！</p>
-                <li><%=link_to "経過記録入力", new_staff_member_progress_record_path, class:"btn btn-info btn-block font-color" %></li>
-                <li><%=link_to "バイタル記録入力", new_staff_member_vital_record_path, class:"btn btn-info btn-block font-color" %></li>
-                <li><%=link_to "ログアウト", destroy_staff_member_session_path, method: :delete, class:"btn btn-info btn-block font-color" %></li>
+              <div class="navbar-text"><%= current_staff_member.full_name %>さん、お疲れ様です！</div>
+                <li><%=link_to "経過記録入力", new_staff_member_progress_record_path, class:"btn btn-info font-color" %></li>
+                <li><%=link_to "バイタル記録入力", new_staff_member_vital_record_path, class:"btn btn-info font-color" %></li>
+                <li><%=link_to "ログアウト", destroy_staff_member_session_path, method: :delete, class:"btn btn-info font-color nav_botton" %></li>
 
               <% else %>
 

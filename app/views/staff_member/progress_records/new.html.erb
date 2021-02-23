@@ -1,4 +1,4 @@
-<h2><%#= @customer.full_name %>様　経過記録　新規入力</h2>
+<h2>経過記録　入力</h2>
 
 <%= form_with model: @progress_record, url: staff_member_progress_records_path, local: true do |progress_record| %>
   <%= progress_record.label :利用者, class: 'control-label' %>
