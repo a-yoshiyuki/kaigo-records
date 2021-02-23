@@ -16,17 +16,31 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 .title {
+  font-family: 'Teko', sans-serif;
   color: white;
 }
 
+.btn-info {
+  font-family: 'Stick', sans-serif;
+  margin: 3px;
+  background: #3CB371;
+  color: #FFF8DC;
+}
+
+body {
+}
+
 .main_title {
+  font-family: 'Teko', sans-serif;
   text-align: center;
   margin: 15px;
   color: #000080;
 }
 
 .login {
+  font-family: 'Stick', sans-serif;
   text-align: center;
   margin: 15px;
 }

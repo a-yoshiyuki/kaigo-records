@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=Stick&family=Teko:wght@500&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -17,22 +18,24 @@
         </nav>
 
         <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <% if admin_signed_in? %>
-              <li><%=link_to "利用者一覧", admin_customers_path, class:"btn btn-info btn-block font-color" %></li>
-              <li><%=link_to "スタッフ一覧", admin_staff_members_path, class:"btn btn-info btn-block font-color" %></li>
-              <li><%=link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"btn btn-info btn-block font-color" %></li>
+          <div class="nav_botton">
+            <ul class="nav navbar-nav navbar-right">
+              <% if admin_signed_in? %>
+                <li ><%=link_to "利用者一覧", admin_customers_path, class:"btn btn-info font-color" %></li>
+                <li><%=link_to "スタッフ一覧", admin_staff_members_path, class:"btn btn-info font-color" %></li>
+                <li><%=link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"btn btn-info font-color" %></li>
 
-            <% elsif staff_member_signed_in? %>
-            <p class="navbar-text"><%= current_staff_member.full_name %>さん、お疲れ様です！</p>
-              <li><%=link_to "経過記録入力", new_staff_member_progress_record_path, class:"btn btn-info btn-block font-color" %></li>
-              <li><%=link_to "バイタル記録入力", new_staff_member_vital_record_path, class:"btn btn-info btn-block font-color" %></li>
-              <li><%=link_to "ログアウト", destroy_staff_member_session_path, method: :delete, class:"btn btn-info btn-block font-color" %></li>
+              <% elsif staff_member_signed_in? %>
+              <p class="navbar-text"><%= current_staff_member.full_name %>さん、お疲れ様です！</p>
+                <li><%=link_to "経過記録入力", new_staff_member_progress_record_path, class:"btn btn-info btn-block font-color" %></li>
+                <li><%=link_to "バイタル記録入力", new_staff_member_vital_record_path, class:"btn btn-info btn-block font-color" %></li>
+                <li><%=link_to "ログアウト", destroy_staff_member_session_path, method: :delete, class:"btn btn-info btn-block font-color" %></li>
 
-            <% else %>
+              <% else %>
 
-            <% end %>
+              <% end %>
           </ul>
+          </div>
         </nav>
       </div>
     </header>
