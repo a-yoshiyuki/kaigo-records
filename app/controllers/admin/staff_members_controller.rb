@@ -28,8 +28,12 @@ class Admin::StaffMembersController < ApplicationController
 
   def destroy
     @staff_member = StaffMember.find(params[:id])
-    @staff_member.destroy
-    redirect_to admin_staff_members_path
+    if @staff_member.destroy
+      redirect_to admin_staff_members_path
+    else
+      render :index
+
+    end
   end
 
   private
