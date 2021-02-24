@@ -80,3 +80,23 @@ h2,h1 {
 .actions {
   font-family: 'Stick', sans-serif;
 }
+
+.image1 {
+  background-image: image-url('348137_s.jpg');
+}
+.image2 {
+  background-image: image-url('2886647_s.jpg');
+}
+.image3 {
+  background-image: image-url('3827579_s.jpg');
+}
+.image4 {
+  background-image: image-url('4453260_s.jpg');
+}
+
+#container{
+  height: 170px;
+  background-size: cover;
+  margin-left: 350px;
+  margin-right: 350px;
+}
