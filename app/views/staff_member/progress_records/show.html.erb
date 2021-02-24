@@ -16,7 +16,7 @@
     <% @progress_records.each do |progress_record| %>
     <tr>
       <td><%= progress_record.time.strftime('%H:%M') %></td>
-      <td><%= progress_record.detail %></td>
+      <td><%= simple_format(progress_record.detail) %></td>
       <td><%= progress_record.staff_member.full_name %></td>
       <td><%= link_to "編集", edit_staff_member_progress_record_path(progress_record) %></td>
       <td><%= link_to "削除", staff_member_progress_record_path(progress_record), method: :delete %></td>
