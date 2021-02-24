@@ -8,11 +8,18 @@ class StaffMembers::RegistrationsController < Devise::RegistrationsController
   # def new
   #   super
   # end
+def create
+    # ここでUser.new（と同等の操作）を行う
+    build_resource(sign_up_params)
+    # ここでUser.save（と同等の操作）を行う
+    resource.save
+    redirect_to admin_staff_members_path
+end
 
-  # POST /resource
-  # def create
-  #   super
-  # end
+
+
+
+
 
   # GET /resource/edit
   # def edit
@@ -60,3 +67,4 @@ class StaffMembers::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 end
+
