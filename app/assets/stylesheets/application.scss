@@ -16,77 +16,83 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-  .nav_title {
-    font-family: 'Teko', sans-serif;
-    color: #009900;
+  @media (min-width: $screen-md-min) {
+    .nav_title {
+      font-family: 'Teko', sans-serif;
+      color: #009900;
+    }
+
+    .btn-info {
+      font-family: 'Stick', sans-serif;
+      margin: 3px;
+      background: #3CB371;
+    }
+
+    .navbar-text {
+      font-family: 'Stick', sans-serif;
+    }
+
+    .navbar {
+      background-color: #CCFF66;
+      margin-bottom: 0px;
+    }
+
+    .top_img {
+      background-image: image-url('table201261768.jpg');
+      background-size: cover;
+      height: 60%;
+      margin: 15px;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      background-color: #FFFFCC;
+      height: 100%;
+    }
+
+    .main_title {
+      font-family: 'Teko', sans-serif;
+      text-align: center;
+      font-size: 81px;
+      margin: 15px;
+      color: #99CCFF;
+    }
+
+    .login {
+      font-family: 'Stick', sans-serif;
+      text-align: center;
+      font-size: 25px;
+      margin: 15px;
+      color: #00AA00;
+    }
+
+    h2,h1 {
+      font-family: 'Stick', sans-serif;
+    }
+
+    .field {
+      font-family: 'Stick', sans-serif;
+    }
+
+    .actions {
+      font-family: 'Stick', sans-serif;
+    }
+
+    #container{
+      height: 25%;
+      background-size: cover;
+      width: 50%;
+      margin-left: 25%;
+      margin-right: 50%;
+    }
+
   }
 
-  .btn-info {
-    font-family: 'Stick', sans-serif;
-    margin: 3px;
-    background: #3CB371;
-  }
 
-  .navbar-text {
-    font-family: 'Stick', sans-serif;
-  }
 
-  .navbar {
-    background-color: #CCFF66;
-    margin-bottom: 0px;
-  }
-
-  .top_img {
-    background-image: image-url('table201261768.jpg');
-    background-size: cover;
-    height: 60%;
-    margin: 15px;
-  }
-
-  html {
-    height: 100%;
-  }
-
-  body {
-    background-color: #FFFFCC;
-    height: 100%;
-  }
-
-  .main_title {
-    font-family: 'Teko', sans-serif;
-    text-align: center;
-    font-size: 81px;
-    margin: 15px;
-    color: #99CCFF;
-  }
-
-  .login {
-    font-family: 'Stick', sans-serif;
-    text-align: center;
-    font-size: 25px;
-    margin: 15px;
-    color: #00AA00;
-  }
-
-  h2,h1 {
-    font-family: 'Stick', sans-serif;
-  }
-
-  .field {
-    font-family: 'Stick', sans-serif;
-  }
-
-  .actions {
-    font-family: 'Stick', sans-serif;
-  }
-
-  #container{
-    height: 25%;
-    background-size: cover;
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 50%;
-  }
 
 .image1 {
   background-image: image-url('348137_s.jpg');
@@ -101,7 +107,7 @@
   background-image: image-url('4453260_s.jpg');
 }
 
-@media screen and (max-width: 769px){
+@media (min-width: $screen-sm-min) {
   .nav_title {
     font-family: 'Teko', sans-serif;
     color: #009900;
