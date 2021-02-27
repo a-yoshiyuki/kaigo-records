@@ -1,36 +1,31 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>top</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<div class="container-fluid">
+  <div class="devise">
+    <div class="row">
+      <div class="col-sm-5"></div>
+      <div class="col-sm-4">
+        <h2>管理者　ログイン</h2>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css2?family=Stick&family=Teko:wght@500&display=swap" rel="stylesheet">
-  </head>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <body>
-    <h2>管理者　ログイン</h2>
+          <div class="field">
+            <%= f.label :メールアドレス %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.label :パスワード %><br />
+            <%= f.password_field :password, autocomplete: "current-password" %>
+          </div>
 
-      <div class="field">
-        <%= f.label :メールアドレス %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div class="actions">
+            <%= f.submit "ログイン", class:"btn btn-primary col-xs-4"%>
+          </div>
+        <% end %>
+          <div class="actions">
+            <%= render "admins/shared/links" %>
+          </div>
       </div>
-
-      <div class="field">
-        <%= f.label :パスワード %><br />
-        <%= f.password_field :password, autocomplete: "current-password" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "ログイン" %>
-      </div>
-    <% end %>
-      <div class="actions">
-        <%= render "admins/shared/links" %>
-      </div>
-  </body>
-</html>
+      <div class="col-sm-3"></div>
+    </div>
+  </div>
+</div>
