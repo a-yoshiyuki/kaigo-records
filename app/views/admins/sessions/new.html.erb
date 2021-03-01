@@ -1,10 +1,17 @@
 <div class="container-fluid">
-  <div class="devise">
+  <div class="devise-title">
     <div class="row">
-      <div class="col-sm-5"></div>
-      <div class="col-sm-4">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4 col-sm-offset-1">
         <h2>管理者　ログイン</h2>
+      </div>
+      <div class="col-sm-4"></div>
+    </div>
+  </div>
 
+    <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-5 col-sm-offset-1">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
           <div class="field">
@@ -18,14 +25,12 @@
           </div>
 
           <div class="actions">
-            <%= f.submit "ログイン", class:"btn btn-primary col-xs-4"%>
+            <%= f.submit "ログイン", class:"btn btn-primary col-sm-4"%></br>
           </div>
         <% end %>
-          <div class="actions">
-            <%= render "admins/shared/links" %>
-          </div>
+        <div class="actions">
+          <%= render "admins/shared/links" %>
       </div>
       <div class="col-sm-3"></div>
     </div>
-  </div>
 </div>
