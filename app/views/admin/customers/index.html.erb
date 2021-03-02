@@ -1,13 +1,38 @@
-<%= link_to "新規登録", new_admin_customer_path %>
-<%= link_to "過去の利用者一覧", list_admin_customers_path, method: :get %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>利用者一覧</h2>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-4">
+      <%= link_to "新規登録", new_admin_customer_path, class: "btn btn-3 btn-lg" %>
+      <%= link_to "過去の利用者一覧", list_admin_customers_path, method: :get, class: "btn btn-4 btn-lg" %>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
 
-<h2>利用者一覧</h2>
-<table>
-  <tbody>
-    <% @customers.each do |customers| %>
-      <%= customers.full_name %>
-      <%= customers.is_deleted %>
-      <%= link_to "詳細", admin_customer_path(customers) %>
-    <% end %>
-  </tbody>
-</table>
+  <div class="row">
+    <div class="col-sm-1 col-xs-1"></div>
+    <div class="col-sm-10 col-xs-10">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>氏名</th>
+            <th>在籍ステータス</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customers.each do |customers| %>
+            <tr>
+              <td><%= customers.full_name %></td>
+              <td><%= customers.is_deleted %></td>
+              <td><%= link_to "詳細", admin_customer_path(customers) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-1 col-xs-1"></div>
+  </div>
+</div>

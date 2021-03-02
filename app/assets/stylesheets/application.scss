@@ -87,18 +87,33 @@
     }
 
     .top-link {
-      font-family: 'Stick', sans-serif;
       margin-top: 40%;
     }
 
-    .btn-primary1 {
+    .btn-1 {
       width: 100%;
       background: #FF9933;
       color: white;
     }
 
-    .btn-primary2 {
+    .btn-2 {
       width: 100%;
       background: #6699CC;
       color: white;
+    }
+
+    .btn-3 {
+      margin-top: 5%;
+      background: #00EE00;
+      color: white;
+    }
+
+    .btn-4 {
+      margin-top: 5%;
+      background: #660066;
+      color: white;
+    }
+
+    .container-fluid {
+      font-family: 'Stick', sans-serif;
     }

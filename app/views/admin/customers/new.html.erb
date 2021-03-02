@@ -1,22 +1,52 @@
-<h2>新規利用者　入力</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-10">
+      <h2>新規利用者　入力</h2>
+    </div>
+  </div>
 
-<%= form_with model: @customer, url: admin_customers_path, local: true do |customer| %>
-  <h5>氏名</h5>
-    姓<%= customer.text_field :first_name %>
-    名<%= customer.text_field :last_name %>
-
-  <h5>フリガナ</h5>
-    セイ<%= customer.text_field :first_name_kana %>
-    メイ<%= customer.text_field :last_name_kana %>
-
-  <h5>在籍ステータス</h5>
-    <% Customer.is_deleteds.each do |is_deleted| %>
-      <div class="form-check">
-        <%= customer.radio_button :is_deleted, is_deleted[0], class: "form-check-input" %>
-        <%= customer.label is_deleted[0], class: "form-check-label" %>
-      </div>
-    <% end %>
-
-  <%= customer.submit "新規登録", class:"btn btn-primary col-xs-12" %>
-
-<% end %>
+  <form class="form-horizontal">
+      <%= form_with model: @customer, url: admin_customers_path, local: true do |customer| %>
+        <div class="form-group">
+          <div class="col-sm-1"></div>
+          <label class="col-sm-3 control-label">氏名</label>
+          <div class="col-sm-3">
+            姓<%= customer.text_field :first_name %>
+          </div>
+          <div class="col-sm-3">
+            名<%= customer.text_field :last_name %>
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-1"></div>
+          <label class="col-sm-3 control-label">フリガナ</label>
+          <div class="col-sm-3">
+            セイ<%= customer.text_field :first_name_kana %>
+          </div>
+          <div class="col-sm-3">
+            メイ<%= customer.text_field :last_name_kana %>
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-1"></div>
+          <label class="col-sm-3 control-label">在籍ステータス</label>
+            <% Customer.is_deleteds.each do |is_deleted| %>
+              <div class="col-sm-1">
+                <div class="form-check">
+                  <%= customer.radio_button :is_deleted, is_deleted[0], class: "form-check-input" %>
+                  <%= customer.label is_deleted[0], class: "form-check-label" %>
+                </div>
+              </div>
+            <% end %>
+            <div class="col-sm-7"></div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-10">
+            <%= customer.submit "新規登録", class:"btn btn-primary btn-lg" %>
+          </div>
+        </div>
+      <% end %>
+  </form>
+</div>
