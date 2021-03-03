@@ -1,6 +1,11 @@
-<h2>利用者情報　編集</h2>
-<table>
-  <tbody>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-10">
+      <h2>利用者情報　編集</h2>
+    </div>
+  </div>
+
+  <div class="row">
     <%= form_with model: @customer, url: admin_customer_path, local: true do |customer| %>
       <tr>
         <th>
@@ -35,5 +40,5 @@
       </tr>
       <%= customer.submit "保存", class:"btn btn-primary" %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
