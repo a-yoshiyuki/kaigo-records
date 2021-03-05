@@ -7,8 +7,7 @@
     <div class="col-sm-4"></div>
   </div>
 
-  <form class="form-horizontal">
-    <%= form_with model: @customer, url: admin_customer_path, local: true do |customer| %>
+    <%= form_with model: @customer, url: admin_customer_path, local: true, class: "form-horizontal" do |customer| %>
       <div class="form-group">
         <div class="col-sm-1"></div>
         <label class="col-sm-3 control-label">氏名</label>
@@ -50,5 +49,4 @@
         </div>
       </div>
     <% end %>
-  </form>
 </div>

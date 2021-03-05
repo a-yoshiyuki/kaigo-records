@@ -7,48 +7,47 @@
     <div class="col-sm-4"></div>
   </div>
 
-  <form class="form-horizontal">
-      <%= form_with model: @customer, url: admin_customers_path, local: true do |customer| %>
-        <div class="form-group">
-          <div class="col-sm-1"></div>
-          <label class="col-sm-3 control-label">氏名</label>
-          <div class="col-sm-3">
-            姓<%= customer.text_field :first_name %>
+
+      <%= form_with model: @customer, url: admin_customers_path, local: true, class: "form-horizontal" do |customer| %>
+          <div class="form-group">
+            <div class="col-sm-1"></div>
+            <label class="col-sm-3 control-label">氏名</label>
+            <div class="col-sm-3">
+              姓<%= customer.text_field :first_name %>
+            </div>
+            <div class="col-sm-3">
+              名<%= customer.text_field :last_name %>
+            </div>
+            <div class="col-sm-2"></div>
           </div>
-          <div class="col-sm-3">
-            名<%= customer.text_field :last_name %>
+          <div class="form-group">
+            <div class="col-sm-1"></div>
+            <label class="col-sm-3 control-label">フリガナ</label>
+            <div class="col-sm-3">
+              セイ<%= customer.text_field :first_name_kana %>
+            </div>
+            <div class="col-sm-3">
+              メイ<%= customer.text_field :last_name_kana %>
+            </div>
+            <div class="col-sm-2"></div>
           </div>
-          <div class="col-sm-2"></div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-1"></div>
-          <label class="col-sm-3 control-label">フリガナ</label>
-          <div class="col-sm-3">
-            セイ<%= customer.text_field :first_name_kana %>
-          </div>
-          <div class="col-sm-3">
-            メイ<%= customer.text_field :last_name_kana %>
-          </div>
-          <div class="col-sm-2"></div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-1"></div>
-          <label class="col-sm-3 control-label">在籍ステータス</label>
-            <% Customer.is_deleteds.each do |is_deleted| %>
-              <div class="col-sm-1">
-                <div class="form-check">
-                  <%= customer.radio_button :is_deleted, is_deleted[0], class: "form-check-input" %>
-                  <%= customer.label is_deleted[0], class: "form-check-label" %>
+          <div class="form-group">
+            <div class="col-sm-1"></div>
+            <label class="col-sm-3 control-label">在籍ステータス</label>
+              <% Customer.is_deleteds.each do |is_deleted| %>
+                <div class="col-sm-1">
+                  <div class="form-check">
+                    <%= customer.radio_button :is_deleted, is_deleted[0], class: "form-check-input" %>
+                    <%= customer.label is_deleted[0], class: "form-check-label" %>
+                  </div>
                 </div>
-              </div>
-            <% end %>
-            <div class="col-sm-7"></div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-3 col-sm-offset-3">
-            <%= customer.submit "新規登録", class:"btn btn-primary btn-lg" %>
+              <% end %>
+              <div class="col-sm-7"></div>
           </div>
-        </div>
+          <div class="form-group">
+            <div class="col-sm-3 col-sm-offset-3">
+              <%= customer.submit "新規登録" %>
+            </div>
+          </div>
       <% end %>
-  </form>
 </div>
