@@ -12,10 +12,10 @@
         <div class="col-sm-1"></div>
         <label class="col-sm-3 control-label">氏名</label>
         <div class="col-sm-3">
-          姓<%= customer.text_field :first_name %>
+          <%= customer.text_field :first_name, :placeholder =>"姓" %>
         </div>
         <div class="col-sm-3">
-          名<%= customer.text_field :last_name %>
+          <%= customer.text_field :last_name, :placeholder =>"名" %>
         </div>
         <div class="col-sm-2"></div>
       </div>
@@ -23,10 +23,10 @@
         <div class="col-sm-1"></div>
         <label class="col-sm-3 control-label">フリガナ</label>
         <div class="col-sm-3">
-          セイ<%= customer.text_field :first_name_kana %>
+          <%= customer.text_field :first_name_kana, :placeholder =>"セイ" %>
         </div>
         <div class="col-sm-3">
-          メイ<%= customer.text_field :last_name_kana %>
+          <%= customer.text_field :last_name_kana, :placeholder =>"メイ" %>
         </div>
         <div class="col-sm-2"></div>
       </div>

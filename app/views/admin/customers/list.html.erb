@@ -3,12 +3,15 @@
     <div class="col-sm-4 col-sm-offset-2">
       <h2>過去の利用者一覧</h2>
     </div>
-
-<p>検索</p>
-<%= form_tag(search_admin_customers_path, :method => 'get') do %>
-  <%= text_field_tag :search %>
-  <%= submit_tag 'Search', :name => nil %>
-<% end %>
+    <div class="col-sm-6">
+      <div class="search">
+        <%= form_tag(search_admin_customers_path, :method => 'get') do %>
+          <%= text_field_tag :search %>
+          <%= submit_tag '検索', :name => nil %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
 <% @customers.each do |customer| %>
   <%= link_to admin_customer_path(customer) do %>
