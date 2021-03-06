@@ -1,9 +1,28 @@
-<ul>
-  <% @customers.each do |customer| %>
-    <li>
-      <%= link_to admin_customer_path(customer) do %>
-        <%= customer.full_name %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4 col-sm-offset-1">
+      <h3>検索結果</h3>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <div class="customer_list">
+        <ul>
+          <% @customers.each do |customer| %>
+            <li>
+              <%= link_to admin_customer_path(customer) do %>
+                <%= customer.full_name %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+        <%= paginate @customers %>
+      </div>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+</div>

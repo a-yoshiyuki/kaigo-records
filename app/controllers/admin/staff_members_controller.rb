@@ -1,7 +1,7 @@
 class Admin::StaffMembersController < ApplicationController
 
   def index
-    @staff_members = StaffMember.all
+    @staff_members = StaffMember.page(params[:page]).reverse_order
   end
 
   def show

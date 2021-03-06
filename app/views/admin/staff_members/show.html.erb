@@ -1,56 +1,81 @@
-<h2>スタッフ情報　詳細</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-2">
+      <h2>スタッフ情報　詳細</h2>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-4">
+      <%= link_to "情報編集", edit_admin_staff_member_path(@staff_member), data: {"turbolinks" => false}, class: "btn btn-3" %>
+    </div>
+  </div>
 
-<table>
-  <tbody>
-    <tr>
-      <th>
-        氏名
-      </th>
-      <th>
-        <%= @staff_member.full_name %>
-      </th>
-    </tr>
-    <tr>
-      <th>
-        フリガナ
-      </th>
-      <th>
-        <%= @staff_member.full_name_kana %>
-      </th>
-    </tr>
-    <tr>
-      <th>
-        郵便番号
-      </th>
-      <th>
-        <%= @staff_member.postal_code %>
-      </th>
-    </tr>
-    <tr>
-      <th>
-        住所
-      </th>
-      <th>
-        <%= @staff_member.address %>
-      </th>
-    </tr>
-    <tr>
-      <th>
-        メールアドレス
-      </th>
-      <th>
-        <%= @staff_member.email %>
-      </th>
-    </tr>
-    <tr>
-      <th>
-        電話番号
-      </th>
-      <th>
-        <%= @staff_member.telephone_number %>
-      </th>
-    </tr>
-  </tbody>
-  <%= link_to "情報編集", edit_admin_staff_member_path(@staff_member), data: {"turbolinks" => false} %>
-  <%= link_to "アカウント削除", admin_staff_member_path(@staff_member), method: :delete, data: {confirm: "削除しますか？"} %>
-</table>
+
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>
+                氏名
+              </th>
+              <th>
+                <%= @staff_member.full_name %>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                フリガナ
+              </th>
+              <th>
+                <%= @staff_member.full_name_kana %>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                郵便番号
+              </th>
+              <th>
+                <%= @staff_member.postal_code %>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                住所
+              </th>
+              <th>
+                <%= @staff_member.address %>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                メールアドレス
+              </th>
+              <th>
+                <%= @staff_member.email %>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                電話番号
+              </th>
+              <th>
+                <%= @staff_member.telephone_number %>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <%= link_to "アカウント削除", admin_staff_member_path(@staff_member), method: :delete, data: {confirm: "削除しますか？"}, class:"btn btn-danger btn-lg" %>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+</div>

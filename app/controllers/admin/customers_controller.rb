@@ -36,9 +36,9 @@ class Admin::CustomersController < ApplicationController
 
   def exit
   end
-  
+
   def search
-    @customers = Customer.search(params[:search])
+    @customers = Customer.search(params[:search]).page(params[:page]).reverse_order
   end
 
   private
