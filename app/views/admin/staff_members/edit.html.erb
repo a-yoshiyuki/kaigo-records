@@ -7,7 +7,7 @@
     <div class="col-sm-4"></div>
   </div>
 
-    <%= form_with model: @staff_member, url: admin_staff_member_path, local: true do |staff_member| %>
+    <%= form_with model: @staff_member, url: admin_staff_member_path, local: true, class: "form-horizontal" do |staff_member| %>
       <div class="form-group">
         <div class="col-sm-1"></div>
         <label class="col-sm-3 control-label">氏名</label>
@@ -32,36 +32,40 @@
       </div>
       <div class="form-group">
         <div class="col-sm-1"></div>
-          <label class="col-sm-3 control-label">郵便番号</label>
-          <div class="col-sm-3">
-            <%= staff_member.text_field :postal_code %>
-          </div>
+        <label class="col-sm-3 control-label">郵便番号</label>
+        <div class="col-sm-3">
+          <%= staff_member.text_field :postal_code %>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-1"></div>
+        <label class="col-sm-3 control-label">住所</label>
+        <div class="col-sm-3">
+          <%= staff_member.text_field :address %>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-1"></div>
+        <label class="col-sm-3 control-label">メールアドレス</label>
+        <div class="col-sm-3">
+          <%= staff_member.text_field :email %>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-1"></div>
+        <label class="col-sm-3 control-label">電話番号</label>
+        <div class="col-sm-3">
+          <%= staff_member.text_field :telephone_number %>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-3 col-sm-offset-7">
+          <%= staff_member.submit "変更", class:"btn btn-primary btn-lg" %>
         </div>
       </div>
-        <th>
-          住所
-        </th>
-        <th>
-          <%= staff_member.text_field :address %>
-        </th>
-      </tr>
-      <tr>
-        <th>
-          メールアドレス
-        </th>
-        <th>
-          <%= staff_member.text_field :email %>
-        </th>
-      </tr>
-      <tr>
-        <th>
-          電話番号
-        </th>
-        <th>
-          <%= staff_member.text_field :telephone_number %>
-        </th>
-      </tr>
-      <%= staff_member.submit "変更", class:"btn btn-primary" %>
     <% end %>
-  </tbody>
-</table>
+</div>
