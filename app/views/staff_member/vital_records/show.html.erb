@@ -1,34 +1,42 @@
-<h2><%= @customer.full_name %>様　バイタル記録</h2>
-<h4><%= Date.today %></h4>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-5 col-sm-offset-1">
+      <h2><%= @customer.full_name %>様　バイタル記録</h2>
+      <h4><%= Date.today %></h4>
+    </div>
+    <div class="col-sm-4 col-sm-offset-2">
+      <%= link_to "過去のバイタル記録", staff_member_index_staff_member_vital_record_path(@customer.id), class: "btn btn-4 btn-lg" %>
+    </div>
+  </div>
 
-<%= link_to "過去のバイタル記録", staff_member_index_staff_member_vital_record_path(@customer.id) %>
-
-<table class="table">
-  <thead class="table table-bordered">
-    <tr>
-      <th>計測時間</th>
-      <th>体温</th>
-      <th>血圧</th>
-      <th>心拍数</th>
-      <th>SPO₂</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @vital_records.each do |vital_record| %>
-    <tr>
-      <td><%= vital_record.time.strftime('%H:%M') %></td>
-      <td><%= vital_record.body_temperature %></td>
-      <td><%= vital_record.blood_pressure_high %>／<%= vital_record.blood_pressure_low %></td>
-      <td><%= vital_record.heart_rate %>回/分</td>
-      <td><%= vital_record.oxygen %>％</td>
-      <td><%= link_to "編集", edit_staff_member_vital_record_path(vital_record) %></td>
-      <td><%= link_to "削除", staff_member_vital_record_path(vital_record), method: :delete %></td>
-    </tr>
-    <% end %>
-  </tbody>
-  <%= link_to "利用者一覧へ", staff_member_customers_path %>
-  <%= link_to "#{@customer.full_name} 様個人記録へ", staff_member_customer_path(@customer) %>
-
-</table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>計測時間</th>
+        <th>体温</th>
+        <th>血圧</th>
+        <th>心拍数</th>
+        <th>SPO₂</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @vital_records.each do |vital_record| %>
+      <tr>
+        <td><%= vital_record.time.strftime('%H:%M') %></td>
+        <td><%= vital_record.body_temperature %></td>
+        <td><%= vital_record.blood_pressure_high %>／<%= vital_record.blood_pressure_low %></td>
+        <td><%= vital_record.heart_rate %>回/分</td>
+        <td><%= vital_record.oxygen %>％</td>
+        <td><%= link_to "編集", edit_staff_member_vital_record_path(vital_record) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <%= link_to "#{@customer.full_name} 様個人記録へ", staff_member_customer_path(@customer), class: "btn btn-5 btn-lg" %>
+    </div>
+  </div>
+</div>
