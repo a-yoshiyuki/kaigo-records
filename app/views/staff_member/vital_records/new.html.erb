@@ -1,31 +1,74 @@
-<h2>バイタル記録　入力</h2>
+<div class="container-fluid">
+　<div class="row">
+　　<div class="col-sm-4"></div>
+　　<div class="col-sm-4">
+　　　<h2>バイタル記録　入力</h2>
+　　</div>
+　　<div class="col-sm-4"></div>
+　</div>
 
-<%= form_with model: @vital_record, url: staff_member_vital_records_path, local: true do |vital_record| %>
-    <%= vital_record.label :利用者, class: 'control-label' %>
-    <%= vital_record.collection_select :customer_id, Customer.where(is_deleted: 0), :id, :full_name %>
-
-    <%= vital_record.label :計測時間, class: 'control-label' %>
-    <%= vital_record.time_select :time, class: 'form-control' %>
-
-    <%= vital_record.label :体温, class: 'control-label' %>
-    <%= vital_record.text_field :body_temperature, size: 3 %>
-    ℃
-
-    <%= vital_record.label :血圧, class: 'control-label' %>
-    <%= vital_record.text_field :blood_pressure_high, size: 3 %>
-    ／
-    <%= vital_record.text_field :blood_pressure_low, size: 3 %>
-
-    <%= vital_record.label :心拍数, class: 'control-label' %>
-    <%= vital_record.text_field :heart_rate, size: 3 %>
-    回/分
-
-    <%= vital_record.label :SPO₂, class: 'control-label' %>
-    <%= vital_record.text_field :oxygen, size: 3 %>
-    ％
+  <%= form_with model: @vital_record, url: staff_member_vital_records_path, local: true, class: "form-horizontal" do |vital_record| %>
+  <div class="form-group">
+    <div class="col-sm-3"></div>
+    <label class="col-sm-2 control-label">利用者</label>
+    <div class="col-sm-4">
+      <%= vital_record.collection_select :customer_id, Customer.where(is_deleted: 0), :id, :full_name %>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-3"></div>
+    <label class="col-sm-2 control-label">計測時間</label>
+    <div class="col-sm-4">
+      <%= vital_record.time_select :time, class: 'form-control' %>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-3"></div>
+    <label class="col-sm-2 control-label">体温</label>
+    <div class="col-sm-4">
+      <%= vital_record.text_field :body_temperature, size: 5 %>
+      ℃
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-3"></div>
+    <label class="col-sm-2 control-label">血圧</label>
+    <div class="col-sm-4">
+      <%= vital_record.text_field :blood_pressure_high, size: 5 %>
+      ／
+      <%= vital_record.text_field :blood_pressure_low, size: 5 %>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-3"></div>
+    <label class="col-sm-2 control-label">心拍数</label>
+    <div class="col-sm-4">
+      <%= vital_record.text_field :heart_rate, size: 5 %>
+      回/分
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-3"></div>
+    <label class="col-sm-2 control-label">SPO₂</label>
+    <div class="col-sm-4">
+      <%= vital_record.text_field :oxygen, size: 5 %>
+      ％
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
 
     <%#= vital_record.hidden_field :staff_members_id, value: @vital_record.staff_members_id %>
-
-    <%= vital_record.submit "バイタル入力", class:"btn btn-primary" %>
-
-<% end %>
+  <div class="form-group">
+    <div class="col-sm-5"></div>
+    <div class="col-sm-2">
+      <%= vital_record.submit "バイタル入力", class:"btn btn-primary" %>
+    </div>
+    <div class="col-sm-5"></div>
+  </div>
+  <% end %>
+</div>
