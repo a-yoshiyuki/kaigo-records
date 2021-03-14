@@ -21,7 +21,7 @@
               <td><%= @meal_records.lunch_main_amount %>／<%= @meal_records.lunch_side_amount %></td>
               <td><%= @meal_records.dinner_main_amount %>／<%= @meal_records.dinner_side_amount %></td>
               <td><%= @meal_records.water_amount %>ｍｌ</td>
-              <td><%= link_to "追加入力", edit_staff_member_meal_record_path(@meal_records) %></td>
+              <td><%= link_to "追加入力", edit_staff_member_meal_record_path(@meal_records), class:"btn btn-success btn-lg" %></td>
             </tr>
             <% else %>
             <tr>

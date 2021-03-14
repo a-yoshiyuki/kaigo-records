@@ -1,24 +1,59 @@
-<h2><%= @meal_records.customer.full_name %>様</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-4"></div>
+    <div class="col-sm-6 col-md-6">
+      <h2><%= @meal_records.customer.full_name %>様</h2>
+    </div>
+    <div class="col-sm-3 col-md-2"></div>
+  </div>
 
-<%= form_with model: @meal_records, url: staff_member_meal_record_path, method: :patch, local: true do |meal_record| %>
-    <%= meal_record.label :朝食, class: 'control-label' %>
-    <%= meal_record.text_field :breakfast_main_amount, size: 3 %>
-    ／
-    <%= meal_record.text_field :breakfast_side_amount, size: 3 %>
+    <%= form_with model: @meal_records, url: staff_member_meal_record_path, method: :patch, local: true, class: "form-horizontal" do |meal_record| %>
+      <div class="form-group">
+        <div class="col-sm-3"></div>
+        <label class="col-sm-2 control-label">朝食</label>
+        <div class="col-sm-4">
+          <%= meal_record.text_field :breakfast_main_amount, size: 3 %>
+          ／
+          <%= meal_record.text_field :breakfast_side_amount, size: 3 %>
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-3"></div>
+        <label class="col-sm-2 control-label">昼食</label>
+        <div class="col-sm-4">
+          <%= meal_record.text_field :lunch_main_amount, size: 3 %>
+          ／
+          <%= meal_record.text_field :lunch_side_amount, size: 3 %>
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+        <div class="form-group">
+          <div class="col-sm-3"></div>
+          <label class="col-sm-2 control-label">夕食</label>
+          <div class="col-sm-4">
+            <%= meal_record.text_field :dinner_main_amount, size: 3 %>
+            ／
+            <%= meal_record.text_field :dinner_side_amount, size: 3 %>
+          </div>
+          <div class="col-sm-3"></div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-3"></div>
+          <label class="col-sm-2 control-label">水分量</label>
+          <div class="col-sm-4">
+            <%= meal_record.text_field :water_amount, size: 6 %>
+            ｍｌ
+          </div>
+          <div class="col-sm-3"></div>
+        </div>
 
-    <%= meal_record.label :昼食, class: 'control-label' %>
-    <%= meal_record.text_field :lunch_main_amount, size: 3 %>
-    ／
-    <%= meal_record.text_field :lunch_side_amount, size: 3 %>
-
-    <%= meal_record.label :夕食, class: 'control-label' %>
-    <%= meal_record.text_field :dinner_main_amount, size: 3 %>
-    ／
-    <%= meal_record.text_field :dinner_side_amount, size: 3 %>
-
-    <%= meal_record.label :水分量, class: 'control-label' %>
-    <%= meal_record.text_field :water_amount, size: 3 %>
-
-    <%= meal_record.submit "食事量・水分量更新", class:"btn btn-primary" %>
-
-<% end %>
+        <div class="form-group">
+          <div class="col-sm-5"></div>
+          <div class="col-sm-2">
+            <%= meal_record.submit "食事量・水分量更新", class:"btn btn-success" %>
+          </div>
+          <div class="col-sm-5"></div>
+        </div>
+    <% end %>
+</div>
