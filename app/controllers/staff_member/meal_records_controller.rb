@@ -2,7 +2,7 @@ class StaffMember::MealRecordsController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @meal_records =MealRecord.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).last
+    @meal_records = MealRecord.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).last
   end
 
   def new
