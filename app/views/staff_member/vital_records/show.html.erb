@@ -1,11 +1,12 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-5 col-sm-offset-1">
-      <h2><%= @customer.full_name %>様　バイタル記録</h2>
+    <div class="col-sm-7 col-md-6 col-md-offset-1">
+      <h3><%= @customer.full_name %>様　バイタル記録</h3>
       <h4><%= Date.today %></h4>
     </div>
-    <div class="col-sm-4 col-sm-offset-2">
-      <%= link_to "過去のバイタル記録", staff_member_index_staff_member_vital_record_path(@customer.id), class: "btn btn-4 btn-lg" %>
+    <div class="col-sm-5 col-md-4 col-md-offset-1">
+      <%= link_to "過去のバイタル記録", staff_member_index_staff_member_vital_record_path(@customer.id), class: "btn btn-4 btn-lg" %></br>
+      <%= link_to "#{@customer.full_name} 様個人記録へ", staff_member_customer_path(@customer), class: "btn btn-5 btn-lg" %>
     </div>
   </div>
 
@@ -33,10 +34,4 @@
       <% end %>
     </tbody>
   </table>
-  <div class="row">
-    <div class="col-sm-4"></div>
-    <div class="col-sm-4">
-      <%= link_to "#{@customer.full_name} 様個人記録へ", staff_member_customer_path(@customer), class: "btn btn-5 btn-lg" %>
-    </div>
-  </div>
 </div>
