@@ -5,9 +5,9 @@
     </div>
     <div class="col-sm-6">
       <div class="search">
-        <%= form_tag(search_admin_customers_path, :method => 'get') do %>
-          <%= text_field_tag :search %>
-          <%= submit_tag '検索', :name => nil %>
+        <%= form_with model: @customer, url: search_admin_customers_path, method: :get, local: true do |customer| %>
+          <%= customer.text_field :search %>
+          <%= customer.submit '検索', :name => nil %>
         <% end %>
       </div>
     </div>
