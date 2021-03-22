@@ -8,17 +8,16 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css2?family=Stick&family=Teko:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   </head>
 
   <body>
-    <header class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default">
       <div class="container-fluid">
-        <nav class="nav navbar-nav navbar-left">
+        <div class="nav navbar-nav navbar-left">
           <h3 class="nav_title">Kaigo records</h3>
-        </nav>
+        </div>
 
-        <nav>
-          <div class="nav_botton">
             <ul class="nav navbar-nav navbar-right">
               <% if admin_signed_in? %>
               <div id="sp-menu">
@@ -37,20 +36,38 @@
 
               <% elsif staff_member_signed_in? %>
               <div class="navbar-text"><%= current_staff_member.full_name %>さん、お疲れ様です！</div>
-                <li><%= link_to "利用者一覧", staff_member_customers_path, class:"btn btn-info font-color" %></li>
-                <li><%=link_to "経過記録入力", new_staff_member_progress_record_path, class:"btn btn-info font-color" %></li>
-                <li><%=link_to "バイタル記録入力", new_staff_member_vital_record_path, class:"btn btn-info font-color" %></li>
-                <li><%=link_to "ログアウト", destroy_staff_member_session_path, method: :delete, class:"btn btn-info font-color nav_botton" %></li>
+              <div id="sp-menu">
+                <li><a href="#"><%= link_to "利用者一覧", staff_member_customers_path %></a></li>
+                <li><a href="#"><%=link_to "経過記録入力", new_staff_member_progress_record_path %></a></li>
+                <li><a href="#"><%=link_to "バイタル記録入力", new_staff_member_vital_record_path %></a></li>
+                <li><a href="#"><%=link_to "ログアウト", destroy_staff_member_session_path, method: :delete %></a></li>
+              </div>
+
+              <div id="hm-icon">
+                <a class="menu-trigger" href="#">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </a>
+              </div>
 
               <% elsif current_page?(session_exit_path) %>
-                <li><%= link_to "トップページへ", root_path, class:"btn btn-info font-color" %></li>
+              <div id="sp-menu">
+                <li><a href="#"><%= link_to "トップページへ", root_path %></a></li>
+              </div>
+
+              <div id="hm-icon">
+                <a class="menu-trigger" href="#">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </a>
+              </div>
               <% else %>
               <% end %>
-          </ul>
-          </div>
-        </nav>
+            </ul>
       </div>
-    </header>
+    </nav>
     <%= yield %>
   </body>
 </html>
