@@ -203,6 +203,30 @@
         .navbar-text {
           margin-left: 10px;
         }
+
+        .top_img {
+          background-image: image-url('table201261768.jpg');
+          background-size: cover;
+          margin : 15px auto;
+        }
+
+        .main_title {
+          font-family: 'Teko', sans-serif;
+          text-align: center;
+          font-size: 70px;
+          margin: 15px;
+          color: #99CCFF;
+        }
+
+        .scroll {
+          overflow-x: auto;
+        }
+
+        .tbl-cst-idx {
+          min-width: 320px;
+          margin: 20px 10px 50px;
+        }
+
     }
 
     @media screen and (min-width:769px){
@@ -223,4 +247,15 @@
         font-weight: bold;
         color: #009900;
       }
+
+      .scroll {
+        overflow-x: none;
+      }
+
+      .tbl-cst-idx {
+        min-width: 100%;
+        margin: 20px 10px 50px;
+        font-size: 21px;
+      }
+
     }
