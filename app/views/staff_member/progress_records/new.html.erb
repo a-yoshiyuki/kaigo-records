@@ -1,18 +1,51 @@
-<h2>経過記録　入力</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <h2>経過記録　入力</h2>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
 
-<%= form_with model: @progress_record, url: staff_member_progress_records_path, local: true do |progress_record| %>
-  <%= progress_record.label :利用者, class: 'control-label' %>
-  <%= progress_record.collection_select :customer_id, Customer.where(is_deleted: 0), :id, :full_name %>
-
-  <%= progress_record.label :時間, class: 'control-label' %>
-  <%= progress_record.time_select :time, class: 'form-control' %>
-
-  <%= progress_record.label :内容, class: 'control-label' %>
-  <%= progress_record.text_area :detail, class: 'form-control' %>
-
-  <%= progress_record.label :記録者, class: 'control-label' %>
-  <%= progress_record.collection_select :staff_member_id, StaffMember.all, :id, :full_name %>
-
-  <%= progress_record.submit "経過記録入力", class:"btn btn-primary" %>
+<%= form_with model: @progress_record, url: staff_member_progress_records_path, local: true, class: "form-horizontal" do |progress_record| %>
+  <div class="form-group">
+    <div class="col-sm-3"></div>
+    <label class="col-sm-2 control-label">利用者</label>
+    <div class="col-sm-4">
+      <%= progress_record.collection_select :customer_id, Customer.where(is_deleted: 0), :id, :full_name %>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-3"></div>
+    <label class="col-sm-2 control-label">時間</label>
+    <div class="col-sm-4">
+      <%= progress_record.time_select :time, class: 'form-control' %>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-3"></div>
+    <label class="col-sm-2 control-label">内容</label>
+    <div class="col-sm-4">
+      <%= progress_record.text_area :detail, class: 'form-control' %>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-3"></div>
+    <label class="col-sm-2 control-label">記録者</label>
+    <div class="col-sm-4">
+      <%= progress_record.collection_select :staff_member_id, StaffMember.all, :id, :full_name %>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-5"></div>
+    <div class="col-sm-2">
+      <%= progress_record.submit "経過記録入力", class:"btn btn-primary" %>
+    </div>
+    <div class="col-sm-5"></div>
+  </div>
 
 <% end %>

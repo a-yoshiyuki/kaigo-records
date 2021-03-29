@@ -4,30 +4,34 @@
       <h3><%= @customer.full_name %>様　過去のバイタル記録</h3>
     </div>
     <div class="col-sm-5 col-sm-offset-3 col-md-4 col-md-offset-1">
-      <%= link_to "#{@customer.full_name} 様個人記録へ", staff_member_customer_path(@customer), class: "btn btn-5 btn-lg" %>
+      <%= link_to "#{@customer.full_name} 様個人記録へ", staff_member_customer_path(@customer), class: "btn btn-5" %>
     </div>
   </div>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>計測時間</th>
-        <th>体温</th>
-        <th>血圧</th>
-        <th>心拍数</th>
-        <th>SPO₂</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @vital_records.each do |vital_record| %>
-      <tr>
-        <td><%= vital_record.created_at.strftime('%Y年%m月%d日%H:%M') %></td>
-        <td><%= vital_record.body_temperature %></td>
-        <td><%= vital_record.blood_pressure_high %>／<%= vital_record.blood_pressure_low %></td>
-        <td><%= vital_record.heart_rate %>回/分</td>
-        <td><%= vital_record.oxygen %>％</td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table">
+      <div class="scroll">
+        <thead>
+          <tr>
+            <th>計測時間</th>
+            <th>体温</th>
+            <th>血圧</th>
+            <th>心拍数</th>
+            <th>SPO₂</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @vital_records.each do |vital_record| %>
+          <tr>
+            <td><%= vital_record.created_at.strftime('%Y年%m月%d日%H:%M') %></td>
+            <td><%= vital_record.body_temperature %></td>
+            <td><%= vital_record.blood_pressure_high %>／<%= vital_record.blood_pressure_low %></td>
+            <td><%= vital_record.heart_rate %>回/分</td>
+            <td><%= vital_record.oxygen %>％</td>
+          </tr>
+          <% end %>
+        </tbody>
+      </div>
+    </table>
+  </div>
 </div>
