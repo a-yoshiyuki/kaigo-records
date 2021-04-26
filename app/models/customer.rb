@@ -4,6 +4,11 @@ class Customer < ApplicationRecord
   has_many :vital_records
   has_many :meal_records
 
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :last_name_kana, presence: true
+  validates :first_name_kana, presence: true
+
   enum is_deleted: { 利用中: 0, 入院中: 1, 退所: 3 }
 
   def full_name

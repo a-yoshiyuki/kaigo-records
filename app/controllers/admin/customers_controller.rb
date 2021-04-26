@@ -25,8 +25,11 @@ class Admin::CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
-    @customer.save
-    redirect_to admin_customers_path(@customer)
+    if @customer.save
+      redirect_to admin_customers_path(@customer)
+    else
+      render :new
+    end
   end
 
   def list
