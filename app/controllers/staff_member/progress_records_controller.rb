@@ -11,9 +11,12 @@ class StaffMember::ProgressRecordsController < ApplicationController
 
   def create
     @progress_record = ProgressRecord.new(progress_record_params)
-    @progress_record.save
-    @customer = Customer.find(progress_record_params[:customer_id])
-    redirect_to staff_member_progress_record_path(@customer.id)
+    if @progress_record.save
+      @customer = Customer.find(progress_record_params[:customer_id])
+      redirect_to staff_member_progress_record_path(@customer.id)
+    else
+      render :new
+    end
   end
 
 
