@@ -1,5 +1,5 @@
-kaigo-records
-
+kaigo-records<br>
+![sample_image]()
 
 Thank you for visiting my repository!<br>
 This repository is a portfolio created by utilizing the knowledge gained from learning Ruby on Rails.
