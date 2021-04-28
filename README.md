@@ -1,4 +1,4 @@
-kaigo-records<br>
+<h2>kaigo-records</h2><br>
 ![sample_image](https://github.com/a-yoshiyuki/kaigo-records/blob/master/FireShot%20Capture%20035%20-%20KaigoRecords%20-%20kaigo-records.online.png?raw=true)
 
 Thank you for visiting my repository!<br>
