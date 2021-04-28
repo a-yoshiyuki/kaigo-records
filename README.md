@@ -1,5 +1,5 @@
 kaigo-records<br>
-![sample_image](FireShot Capture 035 - KaigoRecords - kaigo-records.online.png)
+![sample_image](https://github.com/a-yoshiyuki/kaigo-records/blob/master/FireShot%20Capture%20035%20-%20KaigoRecords%20-%20kaigo-records.online.png?raw=true)
 
 Thank you for visiting my repository!<br>
 This repository is a portfolio created by utilizing the knowledge gained from learning Ruby on Rails.
