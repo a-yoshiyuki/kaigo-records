@@ -1,5 +1,4 @@
 class Admin::CustomersController < ApplicationController
-
   def index
     @customers = Customer.where.not(is_deleted: 3)
     @customer = Customer.new
