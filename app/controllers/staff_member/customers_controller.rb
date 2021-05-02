@@ -1,4 +1,5 @@
 class StaffMember::CustomersController < ApplicationController
+  before_action :authenticate_staff_member!
 
   def index
     @customers = Customer.where.not(is_deleted: 3)

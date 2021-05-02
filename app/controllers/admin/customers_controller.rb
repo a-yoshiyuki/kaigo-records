@@ -1,4 +1,6 @@
 class Admin::CustomersController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @customers = Customer.where.not(is_deleted: 3)
     @customer = Customer.new
