@@ -1,4 +1,5 @@
 class StaffMember::ProgressRecordsController < ApplicationController
+  before_action :authenticate_staff_member!
 
   def show
     @customer = Customer.find(params[:id])
