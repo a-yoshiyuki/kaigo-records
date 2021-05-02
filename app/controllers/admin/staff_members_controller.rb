@@ -1,4 +1,5 @@
 class Admin::StaffMembersController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
     @staff_members = StaffMember.page(params[:page]).reverse_order
