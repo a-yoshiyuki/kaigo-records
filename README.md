@@ -3,7 +3,7 @@ kaigo-records<br>
 
 Thank you for visiting my repository!<br>
 This repository is a portfolio created by utilizing the knowledge gained from learning Ruby on Rails.<br>
-URL:<link_to http://kaigo-records.online/
+URL:http://kaigo-records.online/
 
 [Explanation of the app]<br>
 This app mainly created the function to enter and save records at the nursing care site.<br>
