@@ -15,4 +15,20 @@ RSpec.describe Customer, type: :model do
       expect(@customer).to be_valid
     end
   end
+
+  context "データが正しく保存されない" do
+    before do
+      @customer = Customer.new
+      @customer.last_name = "テスト"
+      @customer.first_name = ""
+      @customer.last_name_kana = "テスト"
+      @customer.first_name_kana = "テスト"
+      @customer.is_deleted = 0
+      @customer.save
+    end
+    it "first_nameが入力されてないので保存失敗" do
+      expect(@customer).to be_invalid
+      expect(@customer.errors[:first_name]).to include("can't be blank")
+    end
+  end
 end
