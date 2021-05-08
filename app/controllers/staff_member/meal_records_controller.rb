@@ -15,8 +15,11 @@ class StaffMember::MealRecordsController < ApplicationController
     @meal_record = MealRecord.new(meal_record_params)
     @meal_record.staff_member = current_staff_member
     @meal_record.customer = Customer.find(params[:customer_id])
-    @meal_record.save
-    redirect_to staff_member_meal_record_path(@meal_record.customer)
+    if @meal_record.save
+      redirect_to staff_member_meal_record_path(@meal_record.customer)
+    else
+      render "new", meal_record: @meal_record
+    end
   end
 
   def edit
@@ -25,8 +28,11 @@ class StaffMember::MealRecordsController < ApplicationController
 
   def update
     @meal_record = MealRecord.find(params[:id])
-    @meal_record.update(meal_record_params)
-    redirect_to staff_member_meal_record_path(@meal_record.customer)
+    if @meal_record.update(meal_record_params)
+      redirect_to staff_member_meal_record_path(@meal_record.customer)
+    else
+      render :edit
+    end
   end
 
   def index
