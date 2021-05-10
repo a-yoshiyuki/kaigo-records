@@ -29,7 +29,7 @@ RSpec.describe ProgressRecord, type: :model do
       @progress_record.save
     end
     it "detailが入力されてないので保存失敗" do
-      expect(@progress_record).to be_valid
+      expect(@progress_record).not_to be_valid
       expect(@progress_record.errors[:detail]).to include("can't be blank")
     end
   end
