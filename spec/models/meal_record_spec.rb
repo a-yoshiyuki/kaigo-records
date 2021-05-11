@@ -31,7 +31,7 @@ RSpec.describe MealRecord, type: :model do
       @meal_record.customer = @customer
       @meal_record.breakfast_main_amount = "10"
       @meal_record.breakfast_side_amount = "10"
-      @meal_record.lunch_main_amount = ""
+      @meal_record.lunch_main_amount = nil
       @meal_record.lunch_side_amount = "10"
       @meal_record.dinner_main_amount = "10"
       @meal_record.dinner_side_amount = "10"
@@ -39,7 +39,7 @@ RSpec.describe MealRecord, type: :model do
       @meal_record.save
     end
     it "lunch_main_amountが入力されてないので保存失敗" do
-      expect(@meal_record).to be_invalid
+      expect(@meal_record).not_to be_valid
       expect(@meal_record.errors[:lunch_main_amount]).to include("can't be blank")
     end
   end

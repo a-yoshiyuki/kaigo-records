@@ -25,7 +25,7 @@ RSpec.describe ProgressRecord, type: :model do
       @progress_record.staff_member = @staff_member
       @progress_record.customer = @customer
       @progress_record.time = "12:00"
-      @progress_record.detail = ""
+      @progress_record.detail = nil
       @progress_record.save
     end
     it "detailが入力されてないので保存失敗" do

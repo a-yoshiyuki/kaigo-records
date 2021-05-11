@@ -20,14 +20,14 @@ RSpec.describe Customer, type: :model do
     before do
       @customer = Customer.new
       @customer.last_name = "テスト"
-      @customer.first_name = ""
+      @customer.first_name = nil
       @customer.last_name_kana = "テスト"
       @customer.first_name_kana = "テスト"
       @customer.is_deleted = 0
       @customer.save
     end
     it "first_nameが入力されてないので保存失敗" do
-      expect(@customer).to be_invalid
+      expect(@customer).not_to be_valid
       expect(@customer.errors[:first_name]).to include("can't be blank")
     end
   end
