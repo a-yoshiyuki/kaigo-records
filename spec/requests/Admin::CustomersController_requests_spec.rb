@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "Admin::CustomersController", type: :request do
+  let(:admin) { FactoryBot.create(:admin) }
+  before do
+    sign_in admin
+  end
+
   describe 'トップ画面' do
     context "トップ画面が正しく表示される" do
       before do
@@ -33,5 +38,4 @@ RSpec.describe "Admin::CustomersController", type: :request do
       end
     end
   end
-
 end
