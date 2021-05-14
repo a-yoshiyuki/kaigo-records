@@ -5,7 +5,7 @@ RSpec.describe "admin_devise_sign_in", type: :request do
   let(:admin_params) { attributes_for(:admin) }
   let(:invalid_admin_params) { attributes_for(:admin, name: "") }
 
-  describe 'GET #new' do
+  describe 'admin ログイン' do
     context "ログイン画面が正しく表示される" do
       before do
         get new_admin_session_path
@@ -14,6 +14,8 @@ RSpec.describe "admin_devise_sign_in", type: :request do
         expect(response.status).to eq 200
       end
     end
+    
+    
 
     context "新規登録画面が正しく表示される" do
       before do
