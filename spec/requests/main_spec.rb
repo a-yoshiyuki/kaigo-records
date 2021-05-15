@@ -15,7 +15,7 @@ RSpec.describe 'admin側　ログイン', type: :feature do
           expect(current_path).to eq('/admins/sign_in')
         end
         it '詳細ページが表示されない' do
-          visit admin_customers_path(customer.id)
+          visit admin_customer_path(customer.id)
           expect(current_path).to eq('/admins/sign_in')
         end
         it '新規登録ページが表示されない' do
@@ -27,6 +27,25 @@ RSpec.describe 'admin側　ログイン', type: :feature do
           expect(current_path).to eq('/admins/sign_in')
         end
         it '過去の経過記録ページが表示されない' do
+          visit staff_member_progress_record_path(customer.id)
+          expect(current_path).to eq('/')
+        end
+        it '過去のバイタル記録ページが表示されない' do
+          visit staff_member_index_staff_member_vital_record_path(customer.id)
+          expect(current_path).to eq('/')
+        end
+        it '過去の食事量・水分量記録ページが表示されない' do
+          visit staff_member_index_staff_member_meal_record_path(customer.id)
+          expect(current_path).to eq('/')
+        end
+      end
+
+      context 'staff関連のURLにアクセス' do
+        it 'スタッフ一覧ページが表示されない' do
+          visit admin_staff_members_path
+          expect(current_path).to eq('/admins/sign_in')
+        end
+        it 'スタッフアカウント作成ページが表示されない' do
           visit staff_member_progress_record_path(customer.id)
           expect(current_path).to eq('/')
         end
