@@ -4,6 +4,11 @@ RSpec.describe "staff_member_devise_sign_in", type: :request do
   let(:staff_member) {create(:staff_member)}
   let(:staff_member_params) { attributes_for(:staff_member) }
   let(:invalid_staff_member_params) { attributes_for(:staff_member, name: "") }
+  let!(:admin) { FactoryBot.create(:admin) }
+  before do
+    sign_in admin
+  end
+
 
   describe 'GET #new' do
     context "ログイン画面が正しく表示される" do

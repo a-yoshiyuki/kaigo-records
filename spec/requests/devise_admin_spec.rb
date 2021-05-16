@@ -14,8 +14,8 @@ RSpec.describe "admin_devise_sign_in", type: :request do
         expect(response.status).to eq 200
       end
     end
-    
-    
+
+
 
     context "新規登録画面が正しく表示される" do
       before do
