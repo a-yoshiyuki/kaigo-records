@@ -82,11 +82,22 @@ RSpec.describe 'admin側　ログイン', type: :feature do
           visit new_staff_member_vital_record_path
           expect(current_path).to eq('/')
         end
-        it '食事量・水分量記録ページが表示されない' do
+        it '食事量・水分量入力ページが表示されない' do
           visit staff_member_new_staff_member_meal_record_path(customer.id)
           expect(current_path).to eq('/')
         end
-
+        it '経過記録編集ページが表示されない' do
+          visit edit_staff_member_progress_record_path(customer.id)
+          expect(current_path).to eq('/')
+        end
+        it 'バイタル記録編集ページが表示されない' do
+          visit edit_staff_member_vital_record_path(customer.id)
+          expect(current_path).to eq('/')
+        end
+        it '食事量・水分量編集ページが表示されない' do
+          visit edit_staff_member_meal_record_path(customer.id)
+          expect(current_path).to eq('/')
+        end
       end
     end
   end
