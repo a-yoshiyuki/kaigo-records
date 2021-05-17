@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Admin::CustomersController", type: :request do
+RSpec.describe "Admin::StaffMembersController", type: :request do
   let(:admin) { FactoryBot.create(:admin) }
   let(:staff_member) { FactoryBot.create(:staff_member) }
   before do
