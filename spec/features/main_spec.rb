@@ -15,10 +15,15 @@ RSpec.describe 'admin側　ログイン', type: :feature do
           visit admin_customers_path
           expect(current_path).to eq('/admins/sign_in')
         end
-        it '詳細ページが表示されない' do
+        it '利用者情報詳細ページが表示されない' do
           visit admin_customer_path(customer.id)
           expect(current_path).to eq('/admins/sign_in')
         end
+        it '利用者情報編集ページが表示されない' do
+          visit edit_admin_customer_path(customer.id)
+          expect(current_path).to eq('/admins/sign_in')
+        end
+
         it '新規登録ページが表示されない' do
           visit new_admin_customer_path
           expect(current_path).to eq('/admins/sign_in')
