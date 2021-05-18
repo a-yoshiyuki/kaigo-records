@@ -8,7 +8,7 @@ RSpec.describe "StaffMember::VitalRecordsController", type: :request do
     sign_in staff_member
   end
 
-    describe 'バイタル記録詳細ページ' do
+  describe 'バイタル記録関連' do
     context "バイタル記録詳細ページが正しく表示される" do
       before do
         get staff_member_vital_record_path(customer.id)
@@ -17,9 +17,7 @@ RSpec.describe "StaffMember::VitalRecordsController", type: :request do
         expect(response.status).to eq 200
       end
     end
-  end
 
-  describe '過去のバイタル記録ページ' do
     context "過去のバイタル記録ページが正しく表示される" do
       before do
         get staff_member_index_staff_member_vital_record_path(customer.id)
@@ -28,9 +26,7 @@ RSpec.describe "StaffMember::VitalRecordsController", type: :request do
         expect(response.status).to eq 200
       end
     end
-  end
 
-  describe 'バイタル記録入力ページ' do
     context "バイタル記録入力ページが正しく表示される" do
       before do
         get new_staff_member_vital_record_path
@@ -39,9 +35,7 @@ RSpec.describe "StaffMember::VitalRecordsController", type: :request do
         expect(response.status).to eq 200
       end
     end
-  end
 
-  describe 'バイタル記録編集ページ' do
     context "バイタル記録編集ページが正しく表示される" do
       before do
         get edit_staff_member_vital_record_path(vital_record.id)
