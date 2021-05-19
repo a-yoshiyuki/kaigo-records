@@ -1,5 +1,5 @@
 class StaffMember::VitalRecordsController < ApplicationController
-  before_action :authenticate_staff_member!
+  before_action :authenticate_any!
 
   def show
     @customer = Customer.find(params[:id])
@@ -13,9 +13,12 @@ class StaffMember::VitalRecordsController < ApplicationController
   def create
     @vital_record = VitalRecord.new(vital_record_params)
     @vital_record.staff_member = current_staff_member
-    @vital_record.save
-    @customer = Customer.find(vital_record_params[:customer_id])
-    redirect_to staff_member_vital_record_path(@customer.id)  #vital_record_params[:customer_id])
+    if @vital_record.save
+      @customer = Customer.find(vital_record_params[:customer_id])
+      redirect_to staff_member_vital_record_path(@customer.id)  #vital_record_params[:customer_id])
+    else
+      render :new
+    end
   end
 
   def edit
@@ -24,8 +27,11 @@ class StaffMember::VitalRecordsController < ApplicationController
 
   def update
     @vital_record = VitalRecord.find(params[:id])
-    @vital_record.update(vital_record_params)
-    redirect_to staff_member_vital_record_path(@vital_record.customer)
+    if @vital_record.update(vital_record_params)
+      redirect_to staff_member_vital_record_path(@vital_record.customer)
+    else
+      render :edit
+    end
   end
 
   def index

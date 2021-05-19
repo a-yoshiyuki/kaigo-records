@@ -9,4 +9,15 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
     devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
   end
+
+  def authenticate_any!
+    if admin_signed_in?
+      true
+    elsif staff_member_signed_in?
+      true
+    else
+      redirect_to root_path
+    end
+
+  end
 end

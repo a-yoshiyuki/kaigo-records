@@ -1,5 +1,5 @@
 class StaffMember::ProgressRecordsController < ApplicationController
-  before_action :authenticate_staff_member!
+  before_action :authenticate_any!
 
   def show
     @customer = Customer.find(params[:id])
@@ -27,8 +27,11 @@ class StaffMember::ProgressRecordsController < ApplicationController
 
   def update
     @progress_record = ProgressRecord.find(params[:id])
-    @progress_record.update(progress_record_params)
-    redirect_to staff_member_progress_record_path(@progress_record.customer)
+    if @progress_record.update(progress_record_params)
+      redirect_to staff_member_progress_record_path(@progress_record.customer)
+    else
+      render :edit
+    end
   end
 
 
