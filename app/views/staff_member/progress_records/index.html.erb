@@ -3,9 +3,12 @@
     <div class="col-sm-4 col-md-6 col-md-offset-1">
       <h3><%= @customer.full_name %>様　過去の経過記録</h3>
     </div>
+    <% if staff_member_signed_in? %>
     <div class="col-sm-5 col-sm-offset-3 col-md-4 col-md-offset-1">
       <%= link_to "#{@customer.full_name} 様個人記録へ", staff_member_customer_path(@customer), class: "btn btn-5" %>
     </div>
+    <% else %>
+    <% end %>
   </div>
 
   <div class="table-responsive">
