@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-5 col-sm-offset-1">
+      <h2>バイタル記録一覧</h2>
+      <h4><%= Date.today %></h4>
+    </div>
+    <div class="col-sm-4 col-md-4"></div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table">
+      <div class="scroll">
+        <thead>
+          <tr>
+            <th></th>
+            <th>計測時間</th>
+            <th>体温</th>
+            <th>血圧</th>
+            <th>心拍数</th>
+            <th>SPO₂</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customer.each do |customer| %>
+            <tr>
+              <td>
+                <%= customer.full_name %>様
+              </td>
+              <% customer.vital_records.each do |vital_record| %>
+                <td><%= vital_record.time.strftime('%H:%M') %></td>
+                <td><%= vital_record.body_temperature %>℃</td>
+                <td><%= vital_record.blood_pressure_high %>／<%= vital_record.blood_pressure_low %></td>
+                <td><%= vital_record.heart_rate %>回/分</td>
+                <td><%= vital_record.oxygen %>％</td>
+                <td><%= link_to "編集", staff_member_vital_record_path(vital_record) %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </div>
+    </div>
+    <div class="col-sm-2 col-md-2"></div>
+  </div>
+</div>

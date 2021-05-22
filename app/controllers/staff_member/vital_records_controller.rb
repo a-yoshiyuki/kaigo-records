@@ -39,6 +39,11 @@ class StaffMember::VitalRecordsController < ApplicationController
     @vital_records = VitalRecord.where(customer_id: @customer.id).page(params[:page]).reverse_order
   end
 
+  def list
+    @customer = Customer.where.not(is_deleted: 3)
+    #@vital_record = VitalRecord.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).last
+  end
+
   def destroy
     @vital_record = VitalRecord.find(params[:id])
     @vital_record.destroy
