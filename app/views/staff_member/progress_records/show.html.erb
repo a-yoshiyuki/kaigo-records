@@ -7,10 +7,7 @@
     <div class="col-sm-5 col-md-4 col-md-offset-1">
       <%= link_to "過去の経過記録", staff_member_path(@customer.id), class: "btn btn-4" %></br>
       <%= link_to "#{@customer.full_name} 様個人記録へ", staff_member_customer_path(@customer), class: "btn btn-5" %><br>
-      <% if @progress_records.present? %>
-      <% else %>
-        <%= link_to "新規入力", staff_member_new_staff_member_progress_record_path(@customer.id), class: "btn btn-3" %>
-      <% end %>
+      <%= link_to "新規入力", staff_member_new_staff_member_progress_record_path(@customer.id), class: "btn btn-3" %>
     </div>
   </div>
 
