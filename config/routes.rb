@@ -31,12 +31,14 @@ Rails.application.routes.draw do
   end
 
   namespace :staff_member do
-    resources :progress_records, only: [:show, :new, :edit, :create, :update, :destroy] do
+    resources :progress_records, only: [:show, :edit, :update, :destroy] do
       collection do
         get :list
       end
     end
-    get '/progress_records/customer/:customer_id', to: 'progress_records#index'
+    get '/progress_records/index/:customer_id', to: 'progress_records#index'
+    get '/progress_records/customer/:customer_id', to: 'progress_records#new', as: 'new_staff_member_progress_record'
+    post '/progress_records/customer/:customer_id', to: 'progress_records#create'
   end
 
   namespace :staff_member do
