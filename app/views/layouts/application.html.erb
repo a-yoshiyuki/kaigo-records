@@ -39,9 +39,9 @@
               <ul class="nav navbar-nav navbar-right">
                 <div id="sp-menu">
                   <li><a href="#"><i class="far fa-address-book"></i><%= link_to "利用者一覧", staff_member_customers_path %></a></li>
-                  <li><a href="#"><i class="fas fa-book-open"></i><%=link_to "経過記録入力", list_staff_member_progress_records_path %></a></li>
-                  <li><a href="#"><i class="fas fa-pizza-slice"></i><%= "食事摂取記録入力" %></a></li>
-                  <li><a href="#"><i class="fas fa-notes-medical"></i><%=link_to "バイタル記録入力", new_staff_member_vital_record_path %></a></li>
+                  <li><a href="#"><i class="fas fa-book-open"></i><%=link_to "経過記録一覧", list_staff_member_progress_records_path %></a></li>
+                  <li><a href="#"><i class="fas fa-pizza-slice"></i><%=link_to "食事摂取記録一覧", list_staff_member_meal_records_path %></a></li>
+                  <li><a href="#"><i class="fas fa-notes-medical"></i><%=link_to "バイタル記録一覧", list_staff_member_vital_records_path %></a></li>
                   <li><a href="#"><i class="fas fa-sign-out-alt"></i><%=link_to "ログアウト", destroy_staff_member_session_path, method: :delete %></a></li>
                 </div>
 

@@ -42,6 +42,10 @@ class StaffMember::MealRecordsController < ApplicationController
     @meal_records = MealRecord.where(customer_id: @customer.id).page(params[:page]).reverse_order
   end
 
+  def list
+    @customers = Customer.where.not(is_deleted: 3)
+  end
+
   def destroy
   end
 

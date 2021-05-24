@@ -51,7 +51,11 @@ Rails.application.routes.draw do
   end
 
   namespace :staff_member do
-    resources :meal_records, only: [:show, :edit, :update, :destroy]
+    resources :meal_records, only: [:show, :edit, :update, :destroy] do
+      collection do
+        get :list
+      end
+    end
     get '/meal_records/index/:customer_id', to: 'meal_records#index', as: 'index_staff_member_meal_record'
     get '/meal_records/customer/:customer_id', to: 'meal_records#new', as: 'new_staff_member_meal_record'
     post '/meal_records/customer/:customer_id', to: 'meal_records#create'

@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-5 col-sm-offset-1">
+      <h2>食事摂取記録一覧</h2>
+      <h4><%= Date.today %></h4>
+    </div>
+    <div class="col-sm-4 col-md-4"></div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table">
+      <div class="scroll">
+        <thead>
+          <tr>
+            <th>利用者氏名</th>
+            <th>朝食</th>
+            <th>昼食</th>
+            <th>夕食</th>
+            <th>水分量</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customers.each do |customer| %>
+            <tr>
+              <td>
+                <%= customer.full_name %>様
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </div>
+    </div>
+    <div class="col-sm-2 col-md-2"></div>
+  </div>
+</div>
