@@ -40,8 +40,8 @@ class StaffMember::VitalRecordsController < ApplicationController
   end
 
   def list
-    @customer = Customer.where.not(is_deleted: 3)
-    @vital_record = VitalRecord.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).last
+    @customers = Customer.where.not(is_deleted: 3)
+    @vital_records = VitalRecord.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).last
   end
 
   def destroy
