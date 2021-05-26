@@ -21,12 +21,12 @@
           </tr>
         </thead>
         <tbody>
-          <% @customers.each do |customer| %>
+          <%# @customers.meal_records.each do |meal_records| %>
             <tr>
               <td>
-                <%= customer.full_name %>様
+                <%= meal_records.customer.full_name %>様
               </td>
-              <td></td>
+              <td><%= meal_records.breakfast_main_amount %>／<%= meal_records.breakfast_side_amount %></td>
               <td></td>
               <td></td>
               <td></td>
