@@ -22,16 +22,16 @@
           </tr>
         </thead>
         <tbody>
-          <% @customers.zip(@vital_records).each do |customers, vital_records| %>
+          <% @customers.each do |customers| %>
             <tr>
               <td>
                 <%= customers.full_name %>様
               </td>
-                <td><%= vital_records.time.strftime('%H:%M') %></td>
-                <td><%= vital_records.body_temperature %>℃</td>
-                <td><%= vital_records.blood_pressure_high %>／<%= vital_records.blood_pressure_low %></td>
-                <td><%= vital_records.heart_rate %>回/分</td>
-                <td><%= vital_records.oxygen %>％</td>
+                <td><%= customers.vital_records.time.strftime('%H:%M') %></td>
+                <td><%= customers.vital_records.body_temperature %>℃</td>
+                <td><%= customers.vital_records.blood_pressure_high %>／<%= customers.vital_records.blood_pressure_low %></td>
+                <td><%= customers.vital_records.heart_rate %>回/分</td>
+                <td><%= customers.vital_records.oxygen %>％</td>
                 <td><%= link_to "編集", staff_member_vital_record_path(vital_record) %></td>
             </tr>
           <% end %>
