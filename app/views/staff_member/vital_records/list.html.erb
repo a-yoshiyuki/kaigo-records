@@ -27,20 +27,20 @@
               <td>
                 <%= customer.full_name %>様
               </td>
-              <% if customer.vital_records.present? %>
-                <td><%= customer.vital_records.last.time.strftime('%H:%M') %></td>
-                <td><%= customer.vital_records.last.body_temperature %>℃</td>
-                <td><%= customer.vital_records.last.blood_pressure_high %>／<%= customer.vital_records.last.blood_pressure_low %></td>
-                <td><%= customer.vital_records.last.heart_rate %>回/分</td>
-                <td><%= customer.vital_records.last.oxygen %>％</td>
-                <td><%= link_to "編集", edit_staff_member_vital_record_path(customer.vital_records.last) %></td>
+              <% if customer.vital_records[:updated_at].match(Date.today.to_s}).present? %>
+                <td><%= customer.vital_records.time.strftime('%H:%M') %></td>
+                <td><%= customer.vital_records.body_temperature %>℃</td>
+                <td><%= customer.vital_records.blood_pressure_high %>／<%= customer.vital_records.blood_pressure_low %></td>
+                <td><%= customer.vital_records.heart_rate %>回/分</td>
+                <td><%= customer.vital_records.oxygen %>％</td>
+                <td><%= link_to "編集", edit_staff_member_vital_record_path(customer.vital_records) %></td>
               <% else %>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td><%= link_to "入力", new_staff_member_vital_record_path(customer.vital_records) %></td>
+                <td><%= link_to "入力", staff_member_new_vital_record_path(customer.id) %></td>
               <% end %>
             </tr>
           <% end %>

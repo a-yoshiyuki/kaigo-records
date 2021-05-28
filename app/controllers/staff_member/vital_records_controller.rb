@@ -7,15 +7,16 @@ class StaffMember::VitalRecordsController < ApplicationController
   end
 
   def new
+    @customer = Customer.find(params[:customer_id])
     @vital_record = VitalRecord.new
   end
 
   def create
     @vital_record = VitalRecord.new(vital_record_params)
     @vital_record.staff_member = current_staff_member
+    @vital_record.customer = Customer.find(params[:customer_id])
     if @vital_record.save
-      @customer = Customer.find(vital_record_params[:customer_id])
-      redirect_to staff_member_vital_record_path(@customer.id)  #vital_record_params[:customer_id])
+      redirect_to staff_member_vital_record_path(@vital_record.customer)
     else
       render :new
     end

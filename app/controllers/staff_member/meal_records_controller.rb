@@ -44,7 +44,7 @@ class StaffMember::MealRecordsController < ApplicationController
 
   def list
     @customers = Customer.where.not(is_deleted: 3)
-    
+
   end
 
   def destroy

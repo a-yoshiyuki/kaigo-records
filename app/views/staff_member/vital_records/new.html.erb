@@ -1,21 +1,13 @@
 <div class="container-fluid">
 　<div class="row">
-　　<div class="col-sm-4"></div>
-　　<div class="col-sm-4">
-　　　<h2>バイタル記録　入力</h2>
-　　</div>
-　　<div class="col-sm-4"></div>
-　</div>
-
-  <%= form_with model: @vital_record, url: staff_member_vital_records_path, local: true, class: "form-horizontal" do |vital_record| %>
-  <div class="form-group">
-    <div class="col-sm-3"></div>
-    <label class="col-sm-2 control-label">利用者</label>
-    <div class="col-sm-4">
-      <%= vital_record.collection_select :customer_id, Customer.where(is_deleted: 0), :id, :full_name %>
+    <div class="col-sm-1 col-md-2"></div>
+    <div class="col-sm-10 col-md-8">
+      <h2><%= @customer.full_name %>様 バイタル記録　入力</h2>
     </div>
-    <div class="col-sm-3"></div>
+    <div class="col-sm-1 col-md-2"></div>
   </div>
+
+  <%= form_with model: @vital_record, url: staff_member_new_vital_record_path, method: :post, local: true, class: "form-horizontal" do |vital_record| %>
   <div class="form-group">
     <div class="col-sm-3"></div>
     <label class="col-sm-2 control-label">計測時間</label>
