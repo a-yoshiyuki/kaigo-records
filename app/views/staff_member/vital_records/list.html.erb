@@ -28,7 +28,7 @@
                 <%= customer.full_name %>様
               </td>
               <% if customer.vital_records.present? %>
-                <td><%= customer.vital_records.last.time.strftime('%H:%M') %></td>
+                <td><%= customer.vital_records.update.today.time.strftime('%H:%M') %></td>
                 <td><%= customer.vital_records.last.body_temperature %>℃</td>
                 <td><%= customer.vital_records.last.blood_pressure_high %>／<%= customer.vital_records.last.blood_pressure_low %></td>
                 <td><%= customer.vital_records.last.heart_rate %>回/分</td>
