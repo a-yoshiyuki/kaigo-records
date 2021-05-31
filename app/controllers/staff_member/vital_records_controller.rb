@@ -16,7 +16,7 @@ class StaffMember::VitalRecordsController < ApplicationController
     @vital_record.staff_member = current_staff_member
     @vital_record.customer = Customer.find(params[:customer_id])
     if @vital_record.save
-      redirect_to staff_member_vital_record_path(@vital_record.customer)
+      redirect_to list_staff_member_vital_records_path
     else
       render :new
     end
@@ -42,7 +42,6 @@ class StaffMember::VitalRecordsController < ApplicationController
 
   def list
     @customers = Customer.where.not(is_deleted: 3)
-    #@vital_records = VitalRecord.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).last
   end
 
   def destroy

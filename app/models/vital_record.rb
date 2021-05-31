@@ -9,4 +9,9 @@ class VitalRecord < ApplicationRecord
   validates :oxygen, presence: true
   validates :blood_pressure_high, presence: true
   validates :blood_pressure_low, presence: true
+
+  def self.today_vital
+    VitalRecord.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).last
+  end
+
 end
