@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   end
 
   namespace :staff_member do
-    resources :vital_records, only: [:show, :new, :edit, :create, :update, :destroy] do
+    resources :vital_records, only: [:show, :edit, :update, :destroy] do
       collection do
         get :list
       end
