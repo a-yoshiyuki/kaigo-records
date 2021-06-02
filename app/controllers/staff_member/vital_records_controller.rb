@@ -29,7 +29,7 @@ class StaffMember::VitalRecordsController < ApplicationController
   def update
     @vital_record = VitalRecord.find(params[:id])
     if @vital_record.update(vital_record_params)
-      redirect_to staff_member_vital_record_path(@vital_record.customer)
+      redirect_to list_staff_member_vital_records_path
     else
       render :edit
     end
@@ -45,9 +45,6 @@ class StaffMember::VitalRecordsController < ApplicationController
   end
 
   def destroy
-    @vital_record = VitalRecord.find(params[:id])
-    @vital_record.destroy
-    redirect_to staff_member_vital_record_path(@vital_record.customer)
   end
 
   private

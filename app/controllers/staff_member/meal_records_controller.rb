@@ -16,7 +16,7 @@ class StaffMember::MealRecordsController < ApplicationController
     @meal_record.staff_member = current_staff_member
     @meal_record.customer = Customer.find(params[:customer_id])
     if @meal_record.save
-      redirect_to staff_member_meal_record_path(@meal_record.customer)
+      redirect_to list_staff_member_meal_records_path
     else
       @customer = Customer.find(params[:customer_id])
       render :new
@@ -30,7 +30,7 @@ class StaffMember::MealRecordsController < ApplicationController
   def update
     @meal_record = MealRecord.find(params[:id])
     if @meal_record.update(meal_record_params)
-      redirect_to staff_member_meal_record_path(@meal_record.customer)
+      redirect_to list_staff_member_meal_records_path
     else
       @meal_records = MealRecord.find(params[:id])
       render :edit
@@ -44,7 +44,6 @@ class StaffMember::MealRecordsController < ApplicationController
 
   def list
     @customers = Customer.where.not(is_deleted: 3)
-
   end
 
   def destroy

@@ -21,16 +21,24 @@
           </tr>
         </thead>
         <tbody>
-          <%# @customers.meal_records.each do |meal_records| %>
+          <% @customers.each do |customer| %>
             <tr>
               <td>
-                <%= meal_records.customer.full_name %>様
+                <%= customer.full_name %>様
               </td>
-              <td><%= meal_records.breakfast_main_amount %>／<%= meal_records.breakfast_side_amount %></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <% if customer.meal_records.today_meal.present? %>
+                <td><%= customer.meal_records.today_meal.breakfast_main_amount %>／<%= customer.meal_records.today_meal.breakfast_side_amount %></td>
+                <td><%= customer.meal_records.today_meal.lunch_main_amount %>／<%= customer.meal_records.today_meal.lunch_side_amount %></td>
+                <td><%= customer.meal_records.today_meal.dinner_main_amount %>／<%= customer.meal_records.today_meal.dinner_side_amount %></td>
+                <td><%= customer.meal_records.today_meal.water_amount %>ｍｌ</td>
+                <td><%= link_to "追加入力", edit_staff_member_meal_record_path(customer.meal_records.today_meal) %></td>
+              <% else %>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><%= link_to "入力", staff_member_new_meal_record_path(customer) %></td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>
