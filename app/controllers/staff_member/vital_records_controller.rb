@@ -2,8 +2,6 @@ class StaffMember::VitalRecordsController < ApplicationController
   before_action :authenticate_any!
 
   def show
-    @customer = Customer.find(params[:id])
-    @vital_records = @customer.vital_records.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).order(id: "DESC")
   end
 
   def new

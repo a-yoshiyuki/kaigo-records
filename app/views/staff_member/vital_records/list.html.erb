@@ -19,6 +19,7 @@
             <th>心拍数</th>
             <th>SPO₂</th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -33,8 +34,10 @@
                 <td><%= customer.vital_records.today_vital.blood_pressure_high %>／<%= customer.vital_records.today_vital.blood_pressure_low %></td>
                 <td><%= customer.vital_records.today_vital.heart_rate %>回/分</td>
                 <td><%= customer.vital_records.today_vital.oxygen %>％</td>
+                <td><%= link_to "追加入力", edit_staff_member_meal_record_path(customer.meal_records.today_meal) %></td>
                 <td><%= link_to "編集", edit_staff_member_vital_record_path(customer.vital_records.today_vital) %></td>
               <% else %>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>

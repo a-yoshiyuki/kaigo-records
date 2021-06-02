@@ -2,8 +2,6 @@ class StaffMember::MealRecordsController < ApplicationController
   before_action :authenticate_any!
 
   def show
-    @customer = Customer.find(params[:id])
-    @meal_records = @customer.meal_records.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).last
   end
 
   def new
