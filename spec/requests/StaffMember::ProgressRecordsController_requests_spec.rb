@@ -29,7 +29,7 @@ RSpec.describe "StaffMember::ProgressRecordsController", type: :request do
 
     context "経過記録入力ページが正しく表示される" do
       before do
-        get new_staff_member_progress_record_path
+        get staff_member_new_staff_member_progress_record_path(customer.id)
       end
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200

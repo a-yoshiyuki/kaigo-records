@@ -8,16 +8,6 @@ RSpec.describe "StaffMember::VitalRecordsController", type: :request do
     sign_in staff_member
   end
 
-  describe 'バイタル記録関連' do
-    context "バイタル記録詳細ページが正しく表示される" do
-      before do
-        get staff_member_vital_record_path(customer.id)
-      end
-      it 'リクエストは200 OKとなること' do
-        expect(response.status).to eq 200
-      end
-    end
-
     context "過去のバイタル記録ページが正しく表示される" do
       before do
         get staff_member_index_staff_member_vital_record_path(customer.id)
@@ -26,10 +16,12 @@ RSpec.describe "StaffMember::VitalRecordsController", type: :request do
         expect(response.status).to eq 200
       end
     end
+    
+    
 
     context "バイタル記録入力ページが正しく表示される" do
       before do
-        get new_staff_member_vital_record_path
+        get staff_member_new_vital_record_path(customer.id)
       end
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
@@ -44,5 +36,4 @@ RSpec.describe "StaffMember::VitalRecordsController", type: :request do
         expect(response.status).to eq 200
       end
     end
-  end
 end
