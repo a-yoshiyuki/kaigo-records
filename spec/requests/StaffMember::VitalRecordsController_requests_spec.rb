@@ -16,8 +16,15 @@ RSpec.describe "StaffMember::VitalRecordsController", type: :request do
         expect(response.status).to eq 200
       end
     end
-    
-    
+
+    context "バイタル記録一覧ページが正しく表示される" do
+      before do
+        get list_staff_member_vital_records_path
+      end
+      it 'リクエストは200 OKとなること' do
+        expect(response.status).to eq 200
+      end
+    end
 
     context "バイタル記録入力ページが正しく表示される" do
       before do

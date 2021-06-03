@@ -39,7 +39,7 @@ RSpec.describe 'admin側&staff側　ログイン', type: :feature do
           visit staff_member_index_staff_member_vital_record_path(customer.id)
           expect(current_path).to eq('/')
         end
-        it '過去の食事量・水分量記録ページが表示されない' do
+        it '過去の食事摂取記録ページが表示されない' do
           visit staff_member_index_staff_member_meal_record_path(customer.id)
           expect(current_path).to eq('/')
         end
