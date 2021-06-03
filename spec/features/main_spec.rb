@@ -1,10 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe 'admin側　ログイン', type: :feature do
+RSpec.describe 'admin側&staff側　ログイン', type: :feature do
   describe 'admin権限のテスト'  do
     let!(:admin) { FactoryBot.create(:admin) }
     let!(:customer) { FactoryBot.create(:customer) }
-    let!(:staff_member) { FactoryBot.create(:staff_member) }
     describe 'ログインしていない場合' do
       context 'admin関連のURLにアクセス' do
         it 'topページが表示されない' do
@@ -40,12 +39,18 @@ RSpec.describe 'admin側　ログイン', type: :feature do
           visit staff_member_index_staff_member_vital_record_path(customer.id)
           expect(current_path).to eq('/')
         end
-        it '過去の食事量・水分量記録ページが表示されない' do
+        it '過去の食事摂取記録ページが表示されない' do
           visit staff_member_index_staff_member_meal_record_path(customer.id)
           expect(current_path).to eq('/')
         end
       end
+    end
+  end
 
+  describe 'staff権限のテスト'  do
+    let!(:staff_member) { FactoryBot.create(:staff_member) }
+    let!(:customer) { FactoryBot.create(:customer) }
+    describe 'ログインしていない場合' do
       context 'staff関連のURLにアクセス' do
         it 'スタッフ一覧ページが表示されない' do
           visit admin_staff_members_path
@@ -80,15 +85,15 @@ RSpec.describe 'admin側　ログイン', type: :feature do
           expect(current_path).to eq('/')
         end
         it '経過記録入力ページが表示されない' do
-          visit new_staff_member_progress_record_path
+          visit staff_member_new_staff_member_progress_record_path(customer.id)
           expect(current_path).to eq('/')
         end
         it 'バイタル記録入力ページが表示されない' do
-          visit new_staff_member_vital_record_path
+          visit staff_member_new_vital_record_path(customer.id)
           expect(current_path).to eq('/')
         end
         it '食事量・水分量入力ページが表示されない' do
-          visit staff_member_new_staff_member_meal_record_path(customer.id)
+          visit staff_member_new_meal_record_path(customer.id)
           expect(current_path).to eq('/')
         end
         it '経過記録編集ページが表示されない' do

@@ -11,4 +11,8 @@ class MealRecord < ApplicationRecord
   validates :dinner_side_amount, presence: true
   validates :water_amount, presence: true
 
+  def self.today_meal
+    MealRecord.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).last
+  end
+
 end

@@ -3,13 +3,13 @@ class StaffMember::CustomersController < ApplicationController
 
   def index
     @customers = Customer.where.not(is_deleted: 3)
-    @customer = Customer.new
   end
 
   def show
     @customer = Customer.find(params[:id])
-    @vital_record = @customer.vital_records.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).last
+    @vital_records = @customer.vital_records.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).order(id: "DESC")
     @meal_record = @customer.meal_records.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).last
+    @progress_records = @customer.progress_records.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).order(id: "DESC")
   end
 
   private

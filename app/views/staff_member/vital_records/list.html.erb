@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-5 col-sm-offset-1">
+      <h2>バイタル記録一覧</h2>
+      <h4><%= Date.today %></h4>
+    </div>
+    <div class="col-sm-4 col-md-4"></div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table">
+      <div class="scroll">
+        <thead>
+          <tr>
+            <th></th>
+            <th>計測時間</th>
+            <th>体温</th>
+            <th>血圧</th>
+            <th>心拍数</th>
+            <th>SPO₂</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customers.each do |customer| %>
+            <tr>
+              <td>
+                <%= customer.full_name %>様
+              </td>
+              <% if customer.vital_records.today_vital.present? %>
+                <td><%= customer.vital_records.today_vital.time.strftime('%H:%M') %></td>
+                <td><%= customer.vital_records.today_vital.body_temperature %>℃</td>
+                <td><%= customer.vital_records.today_vital.blood_pressure_high %>／<%= customer.vital_records.today_vital.blood_pressure_low %></td>
+                <td><%= customer.vital_records.today_vital.heart_rate %>回/分</td>
+                <td><%= customer.vital_records.today_vital.oxygen %>％</td>
+                <td><%= link_to "追加入力", staff_member_new_vital_record_path(customer) %></td>
+                <td><%= link_to "編集", edit_staff_member_vital_record_path(customer.vital_records.today_vital) %></td>
+              <% else %>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><%= link_to "入力", staff_member_new_vital_record_path(customer) %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </div>
+    </div>
+    <div class="col-sm-2 col-md-2"></div>
+  </div>
+</div>
