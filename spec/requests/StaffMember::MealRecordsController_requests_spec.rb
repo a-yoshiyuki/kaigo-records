@@ -8,16 +8,6 @@ RSpec.describe "StaffMember::MealRecordsController", type: :request do
     sign_in staff_member
   end
 
-  describe '食事量・水分量記録関連' do
-    context "食事量・水分量記録詳細ページが正しく表示される" do
-      before do
-        get staff_member_meal_record_path(customer.id)
-      end
-      it 'リクエストは200 OKとなること' do
-        expect(response.status).to eq 200
-      end
-    end
-
     context "過去の食事量・水分量記録ページが正しく表示される" do
       before do
         get staff_member_index_staff_member_meal_record_path(customer.id)
@@ -27,16 +17,26 @@ RSpec.describe "StaffMember::MealRecordsController", type: :request do
       end
     end
 
-    context "食事量・水分量記録入力ページが正しく表示される" do
+    context "食事摂取記録一覧ページが正しく表示される" do
       before do
-        get staff_member_new_staff_member_meal_record_path(customer.id)
+        get list_staff_member_meal_records_path
       end
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end
     end
 
-    context "食事量・水分量記録編集ページが正しく表示される" do
+
+    context "食事摂取記録入力ページが正しく表示される" do
+      before do
+        get staff_member_new_meal_record_path(customer.id)
+      end
+      it 'リクエストは200 OKとなること' do
+        expect(response.status).to eq 200
+      end
+    end
+
+    context "食事摂取記録編集ページが正しく表示される" do
       before do
         get edit_staff_member_meal_record_path(meal_record.id)
       end
@@ -44,5 +44,4 @@ RSpec.describe "StaffMember::MealRecordsController", type: :request do
         expect(response.status).to eq 200
       end
     end
-  end
 end

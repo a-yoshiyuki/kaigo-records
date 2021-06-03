@@ -2,8 +2,6 @@ class StaffMember::MealRecordsController < ApplicationController
   before_action :authenticate_any!
 
   def show
-    @customer = Customer.find(params[:id])
-    @meal_records = @customer.meal_records.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).last
   end
 
   def new
@@ -16,7 +14,7 @@ class StaffMember::MealRecordsController < ApplicationController
     @meal_record.staff_member = current_staff_member
     @meal_record.customer = Customer.find(params[:customer_id])
     if @meal_record.save
-      redirect_to staff_member_meal_record_path(@meal_record.customer)
+      redirect_to list_staff_member_meal_records_path
     else
       @customer = Customer.find(params[:customer_id])
       render :new
@@ -30,7 +28,7 @@ class StaffMember::MealRecordsController < ApplicationController
   def update
     @meal_record = MealRecord.find(params[:id])
     if @meal_record.update(meal_record_params)
-      redirect_to staff_member_meal_record_path(@meal_record.customer)
+      redirect_to list_staff_member_meal_records_path
     else
       @meal_records = MealRecord.find(params[:id])
       render :edit
@@ -40,6 +38,10 @@ class StaffMember::MealRecordsController < ApplicationController
   def index
     @customer = Customer.find(params[:customer_id])
     @meal_records = MealRecord.where(customer_id: @customer.id).page(params[:page]).reverse_order
+  end
+
+  def list
+    @customers = Customer.where.not(is_deleted: 3)
   end
 
   def destroy

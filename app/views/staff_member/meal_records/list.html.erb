@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-5 col-sm-offset-1">
+      <h2>食事摂取記録一覧</h2>
+      <h4><%= Date.today %></h4>
+    </div>
+    <div class="col-sm-4 col-md-4"></div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table">
+      <div class="scroll">
+        <thead>
+          <tr>
+            <th>利用者氏名</th>
+            <th>朝食</th>
+            <th>昼食</th>
+            <th>夕食</th>
+            <th>水分量</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customers.each do |customer| %>
+            <tr>
+              <td>
+                <%= customer.full_name %>様
+              </td>
+              <% if customer.meal_records.today_meal.present? %>
+                <td><%= customer.meal_records.today_meal.breakfast_main_amount %>／<%= customer.meal_records.today_meal.breakfast_side_amount %></td>
+                <td><%= customer.meal_records.today_meal.lunch_main_amount %>／<%= customer.meal_records.today_meal.lunch_side_amount %></td>
+                <td><%= customer.meal_records.today_meal.dinner_main_amount %>／<%= customer.meal_records.today_meal.dinner_side_amount %></td>
+                <td><%= customer.meal_records.today_meal.water_amount %>ｍｌ</td>
+                <td><%= link_to "追加入力", edit_staff_member_meal_record_path(customer.meal_records.today_meal) %></td>
+              <% else %>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><%= link_to "入力", staff_member_new_meal_record_path(customer) %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </div>
+    </div>
+    <div class="col-sm-2 col-md-2"></div>
+  </div>
+</div>
