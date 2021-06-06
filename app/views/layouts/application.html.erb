@@ -18,58 +18,34 @@
           <h3 class="nav_title">Kaigo records</h3>
         </div>
 
-            <ul class="nav navbar-nav navbar-right">
-              <% if admin_signed_in? %>
-              <div id="sp-menu">
-                  <li><a href="#"><i class="far fa-address-book"></i><%=link_to "利用者一覧", admin_customers_path %></a></li>
-                  <li><a href="#"><i class="fas fa-user"></i><%=link_to "スタッフ一覧", admin_staff_members_path %></a></li>
-                  <li><a href="#"><i class="fas fa-sign-out-alt"></i><%=link_to "ログアウト", destroy_admin_session_path, method: :delete %></a></li>
-              </div>
-
-              <div id="hm-icon">
-                <a class="menu-trigger" href="#">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </a>
-              </div>
-            </ul>
-            <% elsif staff_member_signed_in? %>
+        <ul class="nav navbar-nav navbar-right">
+          <% if admin_signed_in? %>
+            <div id="sp-menu">
+                <li><a href="#"><i class="far fa-address-book"></i><%=link_to "利用者一覧", admin_customers_path %></a></li>
+                <li><a href="#"><i class="fas fa-user"></i><%=link_to "スタッフ一覧", admin_staff_members_path %></a></li>
+                <li><a href="#"><i class="fas fa-sign-out-alt"></i><%=link_to "ログアウト", destroy_admin_session_path, method: :delete %></a></li>
+            </div>
+          <% elsif staff_member_signed_in? %>
             <div class="navbar-text"><%= current_staff_member.full_name %>さん、お疲れ様です！</div>
-              <ul class="nav navbar-nav navbar-right">
-                <div id="sp-menu">
-                  <li><a href="#"><i class="far fa-address-book"></i><%= link_to "利用者一覧", staff_member_customers_path %></a></li>
-                  <li><a href="#"><i class="fas fa-book-open"></i><%=link_to "経過記録一覧", list_staff_member_progress_records_path %></a></li>
-                  <li><a href="#"><i class="fas fa-pizza-slice"></i><%=link_to "食事摂取記録一覧", list_staff_member_meal_records_path %></a></li>
-                  <li><a href="#"><i class="fas fa-notes-medical"></i><%=link_to "バイタル記録一覧", list_staff_member_vital_records_path %></a></li>
-                  <li><a href="#"><i class="fas fa-sign-out-alt"></i><%=link_to "ログアウト", destroy_staff_member_session_path, method: :delete %></a></li>
-                </div>
-
-                <div id="hm-icon">
-                  <a class="menu-trigger" href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </a>
-                </div>
-
-                <% elsif current_page?(session_exit_path) %>
-                <div id="sp-menu">
-                  <li><a href="#"><i class="fas fa-fast-backward"></i><%= link_to "トップページへ", root_path %></a></li>
-                </div>
-
-                <div id="hm-icon">
-                  <a class="menu-trigger" href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </a>
-                </div>
-                <% else %>
-                <% end %>
-              </ul>
+              <div id="sp-menu">
+                <li><a href="#"><i class="far fa-address-book"></i><%= link_to "利用者一覧", staff_member_customers_path %></a></li>
+                <li><a href="#"><i class="fas fa-book-open"></i><%=link_to "経過記録一覧", list_staff_member_progress_records_path %></a></li>
+                <li><a href="#"><i class="fas fa-pizza-slice"></i><%=link_to "食事摂取記録一覧", list_staff_member_meal_records_path %></a></li>
+                <li><a href="#"><i class="fas fa-notes-medical"></i><%=link_to "バイタル記録一覧", list_staff_member_vital_records_path %></a></li>
+                <li><a href="#"><i class="fas fa-sign-out-alt"></i><%=link_to "ログアウト", destroy_staff_member_session_path, method: :delete %></a></li>
+              </div>
+          <% elsif current_page?(session_exit_path) %>
+            <div id="sp-menu">
+              <li><a href="#"><i class="fas fa-fast-backward"></i><%= link_to "トップページへ", root_path %></a></li>
+            </div>
+          <% else %>
+          <% end %>
+        </ul>
       </div>
     </nav>
     <%= yield %>
   </body>
+  <foot>
+    asamoto
+  </foot>
 </html>
