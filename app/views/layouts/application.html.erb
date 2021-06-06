@@ -46,6 +46,47 @@
     <%= yield %>
   </body>
   <foot>
-    asamoto
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+    	<div class="container-fluid">
+    	  <% if admin_signed_in? %>
+          <div id="sp-menu2-0">
+            <%=link_to admin_customers_path do %>
+              <li><i class="far fa-address-book"></i></li>
+            <% end %>
+            <%=link_to admin_staff_members_path do %>
+              <li><i class="fas fa-user"></i></li>
+            <% end %>
+            <%=link_to destroy_admin_session_path, method: :delete do %>
+              <li><i class="fas fa-sign-out-alt"></i></li>
+            <% end %>
+          </div>
+        <% elsif staff_member_signed_in? %>
+    	    <div id="sp-menu2">
+    	      <%=link_to staff_member_customers_path do %>
+        	    <li><i class="far fa-address-book"></i></li>
+        	  <% end %>
+        	  <%=link_to list_staff_member_progress_records_path do %>
+              <li><i class="fas fa-book-open"></i></li>
+            <% end %>
+            <%=link_to list_staff_member_meal_records_path do %>
+              <li><i class="fas fa-pizza-slice"></i></li>
+            <% end %>
+            <%=link_to list_staff_member_vital_records_path do %>
+              <li><i class="fas fa-notes-medical"></i></li>
+            <% end %>
+            <%=link_to destroy_staff_member_session_path, method: :delete do %>
+              <li><i class="fas fa-sign-out-alt"></i></li>
+            <% end %>
+          </div>
+        <% elsif current_page?(session_exit_path) %>
+          <div id="sp-menu2-1">
+            <%=link_to root_path do %>
+              <li><i class="fas fa-fast-backward"></i></li>
+            <% end %>
+          </div>
+        <% else %>
+        <% end %>
+    	</div>
+    </nav>
   </foot>
 </html>

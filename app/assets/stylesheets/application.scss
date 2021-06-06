@@ -123,28 +123,58 @@
       margin-top: 10%;
     }
 
-    @media screen and (max-width:420px){
+    @media screen and (max-width:700px){
         #sp-menu li {
+          display: none;
+        }
+        #sp-menu2 {
           text-align: center;
-          font-size: 25px;
-          margin-top: 75px;
-          margin-bottom: 30px;
         }
-        #sp-menu a {
+        #sp-menu2 li {
           color: #009900;
-          text-decoration: none;
-          font-weight: bold;
+          padding-top: 5%;
+          padding-right: 6%;
+          margin-right: 2%;
+          padding-left: 6%;
+          padding-bottom: 5%;
+          list-style: none;
+          display: inline-block;
         }
-
+        #sp-menu2-1 {
+          text-align: center;
+        }
+        #sp-menu2-1 li {
+          color: #009900;
+          padding-top: 5%;
+          padding-right: 6%;
+          padding-left: 90%;
+          padding-bottom: 5%;
+          list-style: none;
+          display: inline-block;
+        }
+        #sp-menu2-0 {
+          text-align: center;
+        }
+        #sp-menu2-0 li {
+          color: #009900;
+          padding-top: 5%;
+          padding-right: 6%;
+          margin-right: 2%;
+          padding-left: 18%;
+          padding-bottom: 5%;
+          list-style: none;
+          display: inline-block;
+        }
         .nav_title {
           font-family: 'Teko', sans-serif;
           color: #009900;
-          font-size: 30px;
-          margin-left: 10px;
+          font-size: 20px;
+          margin: 0% 0% 0% 4%;
         }
 
         .navbar-text {
-          text-align: center;
+          text-align: right;
+          margin: 0%;
         }
 
         .top_img {
@@ -177,7 +207,7 @@
         }
     }
 
-    @media screen and (min-width:421px) and (max-width:1024px){
+    @media screen and (min-width:701px) and (max-width:1024px){
         #sp-menu li {
           text-align: center;
           font-size: 25px;
