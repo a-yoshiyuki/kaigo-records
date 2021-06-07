@@ -123,7 +123,7 @@
       margin-top: 10%;
     }
 
-    @media screen and (max-width:700px){
+    @media screen and (max-width:420px){
         #sp-menu li {
           display: none;
         }
@@ -207,34 +207,147 @@
         }
     }
 
-    @media screen and (min-width:701px) and (max-width:1024px){
+    @media screen and (min-width:421px) and (max-width:740px){
         #sp-menu li {
+          display: none;
+        }
+        #sp-menu2 {
           text-align: center;
-          font-size: 25px;
-          margin-top: 75px;
-          margin-bottom: 30px;
         }
-        #sp-menu a {
+        #sp-menu2 li {
           color: #009900;
-          text-decoration: none;
-          font-weight: bold;
+          font-size: 160%;
+          padding-top: 2%;
+          padding-right: 6%;
+          margin-right: 2%;
+          padding-left: 6%;
+          list-style: none;
+          display: inline-block;
         }
-
+        #sp-menu2-1 {
+          text-align: center;
+        }
+        #sp-menu2-1 li {
+          color: #009900;
+          padding-top: 5%;
+          padding-right: 6%;
+          padding-left: 90%;
+          padding-bottom: 5%;
+          list-style: none;
+          display: inline-block;
+        }
+        #sp-menu2-0 {
+          text-align: center;
+        }
+        #sp-menu2-0 li {
+          color: #009900;
+          padding-top: 5%;
+          padding-right: 6%;
+          margin-right: 2%;
+          padding-left: 18%;
+          padding-bottom: 5%;
+          list-style: none;
+          display: inline-block;
+        }
         .nav_title {
           font-family: 'Teko', sans-serif;
           color: #009900;
-          font-size: 30px;
-          margin-left: 10px;
+          font-size: 20px;
+          margin: 0% 0% 0% 4%;
         }
-
         .navbar {
-          height: 90px;
+          height: 14%;
+        }
+        .navbar-text {
+          text-align: right;
+          margin: 0%;
         }
 
-        .navbar-text {
-        margin: 30px 200px auto auto;
-      }
+        .top_img {
+          background-image: image-url('table201261768.jpg');
+          background-size: cover;
+          margin : 15px auto;
+        }
 
+        .main_title {
+          font-family: 'Teko', sans-serif;
+          text-align: center;
+          font-size: 70px;
+          margin: 15px;
+          color: #99CCFF;
+        }
+
+        .scroll {
+          overflow-x: auto;
+        }
+
+        .tbl-cst-idx {
+          min-width: 320px;
+          margin: 20px 10px 50px;
+        }
+
+        .list {
+          display: flex;
+          flex-direction: column;
+          font-size: 20px;
+        }
+    }
+
+    @media screen and (min-width:741px) and (max-width:1024px){
+        #sp-menu li {
+          display: none;
+        }
+        #sp-menu2 {
+          text-align: center;
+        }
+        #sp-menu2 li {
+          color: #009900;
+          padding-top: 5%;
+          padding-right: 6%;
+          margin-right: 2%;
+          padding-left: 6%;
+          padding-bottom: 5%;
+          list-style: none;
+          display: inline-block;
+        }
+        #sp-menu2-1 {
+          text-align: center;
+        }
+        #sp-menu2-1 li {
+          color: #009900;
+          padding-top: 5%;
+          padding-right: 6%;
+          padding-left: 90%;
+          padding-bottom: 5%;
+          list-style: none;
+          display: inline-block;
+        }
+        #sp-menu2-0 {
+          text-align: center;
+        }
+        #sp-menu2-0 li {
+          color: #009900;
+          padding-top: 5%;
+          padding-right: 6%;
+          margin-right: 2%;
+          padding-left: 18%;
+          padding-bottom: 5%;
+          list-style: none;
+          display: inline-block;
+        }
+        .nav_title {
+          font-family: 'Teko', sans-serif;
+          color: #009900;
+          font-size: 20px;
+          margin: 0% 0% 0% 4%;
+        }
+        .navbar-text {
+          text-align: right;
+          margin: 0%;
+        }
+        .navbar {
+          height: 18%;
+        }
         .top_img {
           background-image: image-url('table201261768.jpg');
           background-size: cover;
@@ -263,10 +376,6 @@
           flex-direction: column;
           font-size: 30px;
         }
-        foot {
-          display: none;
-        }
-
     }
 
   @media screen and (min-width:1025px){
