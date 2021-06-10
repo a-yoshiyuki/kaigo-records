@@ -24,6 +24,7 @@
     .navbar {
       background-color: #CCFF66;
       margin-bottom: 0px;
+      height: 16%;
     }
 
     .top_img {
@@ -68,7 +69,7 @@
     }
 
     .devise-title {
-      margin-top: 50px;
+      margin-top: 2%;
     }
 
     .top-link {
@@ -107,6 +108,7 @@
 
     .container-fluid {
       font-family: 'Stick', sans-serif;
+      padding-bottom: 70px;
     }
 
     .search {
@@ -123,7 +125,6 @@
       text-align: center;
       margin-top: 10%;
     }
-
     @media screen and (max-width:420px){
         #sp-menu li {
           display: none;
@@ -172,6 +173,9 @@
           position: absolute;
           bottom: 0;
           margin-bottom: -200px;
+        }
+        .navbar {
+          height: 16%;
         }
         .nav_title {
           font-family: 'Teko', sans-serif;
@@ -259,28 +263,14 @@
           list-style: none;
           display: inline-block;
         }
-        .wrapper {
-          min-height: 100%;
-          margin-bottom: -16%;
-        }
-        .push {
-          height: 16%;
-        }
         footer {
           width: 100%;
-          height: 200px;
-          position: absolute;
-          bottom: 0;
-          margin-bottom: -200px;
         }
         .nav_title {
           font-family: 'Teko', sans-serif;
           color: #009900;
           font-size: 20px;
           margin: 0% 0% 0% 4%;
-        }
-        .navbar {
-          height: 16%;
         }
         .navbar-text {
           text-align: right;
