@@ -42,6 +42,7 @@
       </div>
     </nav>
     <%= yield %>
+    <footer>
       <nav class="navbar navbar-default navbar-fixed-bottom">
       	<div class="container-fluid">
       	  <% if admin_signed_in? %>
@@ -77,12 +78,18 @@
           <% elsif current_page?(session_exit_path) %>
             <div id="sp-menu2-1">
               <%=link_to root_path do %>
-                <li><i class="fas fa-fast-backward"></i></li>
+                <li>
+                  <i class="fas fa-fast-backward"></i>
+                  <div class="icon-text">
+                    トップページへ
+                  </div>
+                </li>
               <% end %>
             </div>
           <% else %>
           <% end %>
       	</div>
       </nav>
+    </footer>
   </body>
 </html>

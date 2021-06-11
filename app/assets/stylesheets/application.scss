@@ -24,7 +24,7 @@
     .navbar {
       background-color: #CCFF66;
       margin-bottom: 0px;
-      height: 16%;
+      height: 18%;
     }
 
     .top_img {
@@ -159,16 +159,16 @@
         }
         #sp-menu2-0 li {
           color: #009900;
+          font-size: 170%;
           padding-top: 5%;
-          padding-right: 6%;
-          margin-right: 2%;
-          padding-left: 18%;
+          margin-right: 12%;
+          margin-left: 12%;
           padding-bottom: 5%;
           list-style: none;
           display: inline-block;
         }
         .navbar {
-          height: 16%;
+          height: 10%;
         }
         .nav_title {
           font-family: 'Teko', sans-serif;
@@ -256,7 +256,9 @@
           list-style: none;
           display: inline-block;
         }
-
+        .navber {
+          height: 5%;
+        }
         .nav_title {
           font-family: 'Teko', sans-serif;
           color: #009900;
@@ -308,7 +310,8 @@
         }
         #sp-menu2 li {
           color: #009900;
-          padding-top: 5%;
+          font-size: 190%;
+          padding-top: 3%;
           padding-right: 6%;
           margin-right: 2%;
           padding-left: 6%;
@@ -321,22 +324,26 @@
         }
         #sp-menu2-1 li {
           color: #009900;
-          padding-top: 5%;
+          font-size: 190%;
+          padding-top: 3%;
           padding-right: 6%;
           padding-left: 90%;
           padding-bottom: 5%;
           list-style: none;
           display: inline-block;
         }
+        .icon-text {
+          font-size: 4px;
+        }
         #sp-menu2-0 {
           text-align: center;
         }
         #sp-menu2-0 li {
           color: #009900;
-          padding-top: 5%;
-          padding-right: 6%;
-          margin-right: 2%;
-          padding-left: 18%;
+          font-size: 200%;
+          padding-top: 2.5%;
+          margin-right: 14%;
+          margin-left: 14%;
           padding-bottom: 5%;
           list-style: none;
           display: inline-block;
@@ -344,12 +351,13 @@
         .nav_title {
           font-family: 'Teko', sans-serif;
           color: #009900;
-          font-size: 20px;
-          margin: 0% 0% 0% 4%;
+          font-size: 35px;
+          margin-top: 16%;
         }
         .navbar-text {
           text-align: right;
-          margin: 0%;
+          font-size: 20px;
+          margin-top: 12%;
         }
         .navbar {
           height: 10%;
@@ -404,7 +412,7 @@
       }
 
       .navbar {
-        height: 9%;
+        height: 6%;
       }
 
       .scroll {
