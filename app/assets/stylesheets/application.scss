@@ -125,7 +125,7 @@
       text-align: center;
       margin-top: 10%;
     }
-    @media screen and (max-width:420px){
+    @media screen and (max-width:330px){
         #sp-menu li {
           display: none;
         }
@@ -135,9 +135,8 @@
         #sp-menu2 li {
           color: #009900;
           padding-top: 5%;
-          padding-right: 6%;
-          margin-right: 2%;
-          padding-left: 6%;
+          padding-right: 1%;
+          padding-left: 1%;
           padding-bottom: 5%;
           list-style: none;
           display: inline-block;
@@ -148,8 +147,7 @@
         #sp-menu2-1 li {
           color: #009900;
           padding-top: 5%;
-          padding-right: 6%;
-          padding-left: 90%;
+          padding-left: 76%;
           padding-bottom: 5%;
           list-style: none;
           display: inline-block;
@@ -159,13 +157,103 @@
         }
         #sp-menu2-0 li {
           color: #009900;
-          font-size: 170%;
-          padding-top: 5%;
-          margin-right: 12%;
-          margin-left: 12%;
+          font-size: 150%;
+          padding-top: 3%;
+          margin-right: 8%;
+          margin-left: 10%;
           padding-bottom: 5%;
           list-style: none;
           display: inline-block;
+        }
+        .icon-text {
+          font-size: 4px;
+        }
+        .navbar {
+          height: 11%;
+        }
+        .nav_title {
+          font-family: 'Teko', sans-serif;
+          color: #009900;
+          font-size: 20px;
+          margin: 0% 0% 0% 4%;
+        }
+
+        .navbar-text {
+          text-align: right;
+          margin: 0%;
+        }
+
+        .top_img {
+          background-image: image-url('table201261768.jpg');
+          background-size: cover;
+          margin : 15px auto;
+        }
+
+        .main_title {
+          font-family: 'Teko', sans-serif;
+          text-align: center;
+          font-size: 70px;
+          margin: 15px;
+          color: #99CCFF;
+        }
+
+        .scroll {
+          overflow-x: auto;
+        }
+
+        .tbl-cst-idx {
+          min-width: 320px;
+          margin: 20px 10px 50px;
+        }
+
+        .list {
+          display: flex;
+          flex-direction: column;
+          font-size: 20px;
+        }
+    }
+    @media screen and (min-width:331px) and (max-width:420px){
+      #sp-menu li {
+          display: none;
+        }
+        #sp-menu2 {
+          text-align: center;
+        }
+        #sp-menu2 li {
+          color: #009900;
+          padding-top: 5%;
+          padding-right: 2%;
+          padding-left: 2%;
+          padding-bottom: 5%;
+          list-style: none;
+          display: inline-block;
+        }
+        #sp-menu2-1 {
+          text-align: center;
+        }
+        #sp-menu2-1 li {
+          color: #009900;
+          padding-top: 5%;
+          padding-left: 76%;
+          padding-bottom: 5%;
+          list-style: none;
+          display: inline-block;
+        }
+        #sp-menu2-0 {
+          text-align: center;
+        }
+        #sp-menu2-0 li {
+          color: #009900;
+          font-size: 150%;
+          padding-top: 3%;
+          margin-right: 8%;
+          margin-left: 10%;
+          padding-bottom: 5%;
+          list-style: none;
+          display: inline-block;
+        }
+        .icon-text {
+          font-size: 4px;
         }
         .navbar {
           height: 10%;
@@ -221,10 +309,9 @@
         }
         #sp-menu2 li {
           color: #009900;
-          font-size: 160%;
+          font-size: 140%;
           padding-top: 2%;
-          padding-right: 6%;
-          margin-right: 2%;
+          padding-right: 4%;
           padding-left: 6%;
           list-style: none;
           display: inline-block;
@@ -234,10 +321,9 @@
         }
         #sp-menu2-1 li {
           color: #009900;
-          font-size: 160%;
+          font-size: 150%;
           padding-top: 2%;
-          padding-right: 6%;
-          padding-left: 90%;
+          padding-left: 80%;
           padding-bottom: 8%;
           list-style: none;
           display: inline-block;
@@ -247,14 +333,16 @@
         }
         #sp-menu2-0 li {
           color: #009900;
-          font-size: 160%;
+          font-size: 140%;
           padding-top: 2%;
-          padding-right: 10%;
-          margin-right: 2%;
-          padding-left: 10%;
+          padding-right: 8%;
+          padding-left: 8%;
           padding-bottom: 5%;
           list-style: none;
           display: inline-block;
+        }
+        .icon-text {
+          font-size: 4px;
         }
         .navber {
           height: 5%;
@@ -313,7 +401,6 @@
           font-size: 190%;
           padding-top: 3%;
           padding-right: 6%;
-          margin-right: 2%;
           padding-left: 6%;
           padding-bottom: 5%;
           list-style: none;
@@ -327,7 +414,7 @@
           font-size: 190%;
           padding-top: 3%;
           padding-right: 6%;
-          padding-left: 90%;
+          padding-left: 80%;
           padding-bottom: 5%;
           list-style: none;
           display: inline-block;
@@ -360,7 +447,7 @@
           margin-top: 12%;
         }
         .navbar {
-          height: 10%;
+          height: 12%;
         }
         .top_img {
           background-image: image-url('table201261768.jpg');
