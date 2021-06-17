@@ -19,39 +19,43 @@
             <th>血圧</th>
             <th>心拍数</th>
             <th>SPO₂</th>
+            <th><%= link_to "過去のバイタル記録", staff_member_index_staff_member_vital_record_path(@customer.id), class: "btn btn-4" %></th>
           </tr>
         </thead>
         <tbody>
           <% @vital_records.each do |vital_record| %>
-          <% if vital_record.present? %>
-          <tr>
-            <td><%= vital_record.time.strftime('%H:%M') %></td>
-            <td><%= vital_record.body_temperature %>℃</td>
-            <td><%= vital_record.blood_pressure_high %>／<%= vital_record.blood_pressure_low %></td>
-            <td><%= vital_record.heart_rate %>回/分</td>
-            <td><%= vital_record.oxygen %>％</td>
-          </tr>
-          <% else %>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <% end %>
+            <% if vital_record.present? %>
+            <tr>
+              <td><%= vital_record.time.strftime('%H:%M') %></td>
+              <td><%= vital_record.body_temperature %>℃</td>
+              <td><%= vital_record.blood_pressure_high %>／<%= vital_record.blood_pressure_low %></td>
+              <td><%= vital_record.heart_rate %>回/分</td>
+              <td><%= vital_record.oxygen %>％</td>
+              <td></td>
+            </tr>
+            <% else %>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <% end %>
           <% end %>
         </tbody>
       </table>
 
       <table class="table">
         <thead>
-          <h3>食事量・水分量</h3>
+          <h3>食事摂取量</h3>
           <tr>
             <th>朝食</th>
             <th>昼食</th>
             <th>夕食</th>
             <th>水分量</th>
+            <th><%= link_to "過去の食事摂取量記録", staff_member_index_staff_member_meal_record_path(@customer), class: "btn btn-4" %></th>
           </tr>
         </thead>
         <tbody>
@@ -61,9 +65,11 @@
             <td><%= @meal_record.lunch_main_amount %>／<%= @meal_record.lunch_side_amount %></td>
             <td><%= @meal_record.dinner_main_amount %>／<%= @meal_record.dinner_side_amount %></td>
             <td><%= @meal_record.water_amount %>ｍｌ</td>
+            <td></td>
           </tr>
           <% else %>
           <tr>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -81,6 +87,7 @@
             <th>時間</th>
             <th>内容</th>
             <th>記録者</th>
+            <th><%= link_to "過去の経過記録", staff_member_path(@customer.id), class: "btn btn-4" %></th>
           </tr>
         </thead>
         <tbody>
@@ -89,6 +96,7 @@
               <td><%= progress_record.time.strftime('%H:%M') %></td>
               <td><%= simple_format(progress_record.detail) %></td>
               <td><%= progress_record.staff_member.full_name %></td>
+              <td></td>
             </tr>
           <% end %>
         </tbody>
