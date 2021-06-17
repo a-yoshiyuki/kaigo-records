@@ -2,7 +2,8 @@ kaigo-records<br>
 ![sample_image](https://github.com/a-yoshiyuki/kaigo-records/blob/master/FireShot%20Capture%20035%20-%20KaigoRecords%20-%20kaigo-records.online.png?raw=true)
 
 Thank you for visiting my repository!<br>
-This repository is a portfolio created by utilizing the knowledge gained from learning Ruby on Rails.
+This repository is a portfolio created by utilizing the knowledge gained from learning Ruby on Rails.<br>
+URL:https://kaigo-records.online/
 
 [Explanation of the app]<br>
 This app mainly created the function to enter and save records at the nursing care site.<br>
