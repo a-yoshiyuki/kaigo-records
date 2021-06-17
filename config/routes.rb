@@ -61,6 +61,7 @@ Rails.application.routes.draw do
     get '/meal_records/index/:customer_id', to: 'meal_records#index', as: 'index_staff_member_meal_record'
     get '/meal_records/customer/:customer_id', to: 'meal_records#new', as: 'new_meal_record'
     post '/meal_records/customer/:customer_id', to: 'meal_records#create'
+    get '/meal_records/:id/archives/:yyyymm', to: 'meal_records#archives', as: :meal_record_archive
   end
 
     devise_for :admins, controllers: {

@@ -38,10 +38,15 @@ class StaffMember::MealRecordsController < ApplicationController
   def index
     @customer = Customer.find(params[:customer_id])
     @meal_records = MealRecord.where(customer_id: @customer.id).page(params[:page]).reverse_order
+    @archives = MealRecord.group("created_at.strftime('%Y年)")
   end
 
   def list
     @customers = Customer.where.not(is_deleted: 3)
+  end
+
+  def archives_monthly
+    #@archives = @meal_records.divide_monthly
   end
 
   def destroy
