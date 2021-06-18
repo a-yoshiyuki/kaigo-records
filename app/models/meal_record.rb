@@ -14,4 +14,9 @@ class MealRecord < ApplicationRecord
   def self.today_meal
     MealRecord.where(updated_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).last
   end
+
+  def divide_monthly
+    return self.meal_records.group("strftime('%Y%m', articles.created_at)").order(Arel.sql("strftime('%Y%m', articles.created_at) desc")).count
+  end
+
 end
