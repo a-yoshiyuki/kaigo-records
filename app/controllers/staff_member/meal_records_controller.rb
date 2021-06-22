@@ -38,11 +38,14 @@ class StaffMember::MealRecordsController < ApplicationController
 
   def index
     @customer = Customer.find(params[:customer_id])
-    @meal_records = MealRecord.where(customer_id: @customer.id).page(params[:page]).reverse_order
-    @q = MealRecord.ransack(params[:id])
+    @meal_records = MealRecord.where(customer_id: @customer.id).page(params[:page]).reverse_order.per(7)
+    @q = @customer.meal_records.ransack(params[:q])
   end
 
   def search
+    @customer = Customer.find(params[:customer_id])
+    @meal_records = MealRecord.where(customer_id: @customer.id)
+    @q = @customer.meal_records.ransack(params[:q])
     @results = @q.result
   end
 
