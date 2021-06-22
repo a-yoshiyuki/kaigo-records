@@ -37,4 +37,11 @@
       </div>
     </table>
   </div>
+  <h1>過去の記録を検索</h1>
+<%= search_form_for @q, url: search_staff_member_meal_records_path do |meal_records| %>
+  <%= meal_records.label '年月日' %>
+  <%= meal_records.search_field :created_at %>
+  <br>
+  <%= meal_records.submit '検索' %>
+<% end %>
 </div>
