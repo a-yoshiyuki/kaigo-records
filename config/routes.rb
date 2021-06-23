@@ -49,6 +49,7 @@ Rails.application.routes.draw do
     end
     get '/vital_records/index/:customer_id', to: 'vital_records#index', as: 'index_staff_member_vital_record'
     get '/vital_records/customer/:customer_id', to: 'vital_records#new', as: 'new_vital_record'
+    get '/vital_records/search/:customer_id', to: 'vital_records#search', as: 'search_vital_record'
     post '/vital_records/customer/:customer_id', to: 'vital_records#create'
   end
 
