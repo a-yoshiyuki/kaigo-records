@@ -38,6 +38,14 @@ class StaffMember::ProgressRecordsController < ApplicationController
   def index
     @customer = Customer.find(params[:customer_id])
     @progress_records = ProgressRecord.where(customer_id: @customer.id).page(params[:page]).reverse_order
+    @q = @customer.progress_records.ransack(params[:q])
+  end
+  
+  def search
+    @customer = Customer.find(params[:customer_id])
+    @progress_records = ProgressRecord.where(customer_id: @customer.id)
+    @q = @customer.progress_records.ransack(params[:q])
+    @results = @q.result
   end
 
   def destroy
@@ -51,6 +59,11 @@ class StaffMember::ProgressRecordsController < ApplicationController
   end
 
   private
+  
+    def set_q
+      @q = ProgressRecord.ransack(params[:id])
+    end
+
     def progress_record_params
       params.require(:progress_record).permit(:customer_id, :staff_member_id, :time, :detail)
     end
