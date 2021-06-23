@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     end
     get '/progress_records/index/:customer_id', to: 'progress_records#index'
     get '/progress_records/customer/:customer_id', to: 'progress_records#new', as: 'new_staff_member_progress_record'
+    get '/progress_records/search/:customer_id', to: 'progress_records#search', as: 'search_progress_record'
     post '/progress_records/customer/:customer_id', to: 'progress_records#create'
   end
 
