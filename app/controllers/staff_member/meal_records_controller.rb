@@ -1,5 +1,6 @@
 class StaffMember::MealRecordsController < ApplicationController
   before_action :authenticate_any!
+  before_action :set_q, only: [:index, :search]
 
   def show
   end
@@ -37,7 +38,15 @@ class StaffMember::MealRecordsController < ApplicationController
 
   def index
     @customer = Customer.find(params[:customer_id])
-    @meal_records = MealRecord.where(customer_id: @customer.id).page(params[:page]).reverse_order
+    @meal_records = MealRecord.where(customer_id: @customer.id).page(params[:page]).reverse_order.per(7)
+    @q = @customer.meal_records.ransack(params[:q])
+  end
+
+  def search
+    @customer = Customer.find(params[:customer_id])
+    @meal_records = MealRecord.where(customer_id: @customer.id)
+    @q = @customer.meal_records.ransack(params[:q])
+    @results = @q.result
   end
 
   def list
@@ -48,6 +57,11 @@ class StaffMember::MealRecordsController < ApplicationController
   end
 
   private
+
+    def set_q
+      @q = MealRecord.ransack(params[:id])
+    end
+
     def meal_record_params
       params.require(:meal_record).permit(:customer_id, :staff_members_id, :breakfast_main_amount, :breakfast_side_amount, :lunch_main_amount, :lunch_side_amount, :dinner_main_amount, :dinner_side_amount, :water_amount)
     end

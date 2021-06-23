@@ -11,6 +11,22 @@
     <% end %>
   </div>
 
+  <div class="row">
+    <%= search_form_for @q, url: staff_member_search_progress_record_path do |progress_records| %>
+      <div class="form-group">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-6">
+          <label for="PastRecord">過去の記録を検索</label><br>
+          <%= progress_records.date_field :created_at_gteq, include_blank: true %>
+          〜
+          <%= progress_records.date_field :created_at_lteq, include_blank: true %>
+          <%= progress_records.submit '検索' %>
+        </div>
+        <div class="col-sm-5"></div>
+      </div>
+    <% end %>
+  </div>
+
   <div class="table-responsive">
     <table class="table">
       <div class="scroll">

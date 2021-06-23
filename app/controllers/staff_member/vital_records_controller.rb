@@ -35,7 +35,15 @@ class StaffMember::VitalRecordsController < ApplicationController
 
   def index
     @customer = Customer.find(params[:customer_id])
-    @vital_records = VitalRecord.where(customer_id: @customer.id).page(params[:page]).reverse_order
+    @vital_records = VitalRecord.where(customer_id: @customer.id).page(params[:page]).reverse_order.per(7)
+    @q = @customer.vital_records.ransack(params[:q])
+  end
+
+  def search
+    @customer = Customer.find(params[:customer_id])
+    @meal_records = VitalRecord.where(customer_id: @customer.id)
+    @q = @customer.vital_records.ransack(params[:q])
+    @results = @q.result
   end
 
   def list
@@ -46,8 +54,12 @@ class StaffMember::VitalRecordsController < ApplicationController
   end
 
   private
+
+    def set_q
+      @q = VitalRecord.ransack(params[:id])
+    end
+
     def vital_record_params
       params.require(:vital_record).permit(:customer_id, :staff_members_id, :time, :body_temperature, :heart_rate, :oxygen, :blood_pressure_high, :blood_pressure_low)
     end
-
 end

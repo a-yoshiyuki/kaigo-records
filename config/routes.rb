@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     end
     get '/progress_records/index/:customer_id', to: 'progress_records#index'
     get '/progress_records/customer/:customer_id', to: 'progress_records#new', as: 'new_staff_member_progress_record'
+    get '/progress_records/search/:customer_id', to: 'progress_records#search', as: 'search_progress_record'
     post '/progress_records/customer/:customer_id', to: 'progress_records#create'
   end
 
@@ -49,6 +50,7 @@ Rails.application.routes.draw do
     end
     get '/vital_records/index/:customer_id', to: 'vital_records#index', as: 'index_staff_member_vital_record'
     get '/vital_records/customer/:customer_id', to: 'vital_records#new', as: 'new_vital_record'
+    get '/vital_records/search/:customer_id', to: 'vital_records#search', as: 'search_vital_record'
     post '/vital_records/customer/:customer_id', to: 'vital_records#create'
   end
 
@@ -56,10 +58,12 @@ Rails.application.routes.draw do
     resources :meal_records, only: [:show, :edit, :update, :destroy] do
       collection do
         get :list
+        get :search
       end
     end
     get '/meal_records/index/:customer_id', to: 'meal_records#index', as: 'index_staff_member_meal_record'
     get '/meal_records/customer/:customer_id', to: 'meal_records#new', as: 'new_meal_record'
+    get '/meal_records/search/:customer_id', to: 'meal_records#search', as: 'search_meal_record'
     post '/meal_records/customer/:customer_id', to: 'meal_records#create'
   end
 
