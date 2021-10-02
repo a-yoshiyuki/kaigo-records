@@ -1,5 +1,6 @@
 class Admin::CustomersController < ApplicationController
   before_action :authenticate_admin!
+  before_action :set_q, only: [:index, :search]
 
   def index
     @customers = Customer.where.not(is_deleted: 3)
@@ -41,11 +42,20 @@ class Admin::CustomersController < ApplicationController
   def exit
   end
 
+  #def search
+    #@customers = Customer.search(params[:search]).page(params[:page]).reverse_order
+  #end
+
   def search
-    @customers = Customer.search(params[:search]).page(params[:page]).reverse_order
+    @results = @q.result
   end
 
   private
+
+    def set_q
+      @q = Customer.ransack(params[:q])
+    end
+
     def customer_params
       params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :is_deleted)
     end

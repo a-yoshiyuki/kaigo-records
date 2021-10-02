@@ -5,9 +5,14 @@
     </div>
     <div class="col-sm-6">
       <div class="search">
-        <%= form_with model: @customer, url: search_admin_customers_path, method: :get, local: true do |customer| %>
-          <%= customer.text_field :search %>
-          <%= customer.submit '検索', :name => nil %>
+        <%= search_form_for @q, url: search_admin_customers_path do |search| %>
+          <%= search.label :name_cont, '利用者氏名' %>
+          <%= search.search_field :first_name %>
+          <%= search.search_field :last_name %>
+          <%= search.search_field :first_name_kana %>
+          <%= search.search_field :last_name_kana %>
+          <br>
+          <%= search.submit '検索' %>
         <% end %>
       </div>
     </div>

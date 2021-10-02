@@ -19,13 +19,13 @@ class Customer < ApplicationRecord
     self.first_name_kana + "　" + self.last_name_kana
   end
 
-  def self.search(search)
-    if search
-      Customer.where(['first_name LIKE ? or last_name LIKE ? or first_name_kana LIKE ? or last_name_kana LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
-    else
-      Customer.all
-    end
-  end
+  #def self.search(search)
+    #if search
+      #Customer.where(['first_name LIKE ? or last_name LIKE ? or first_name_kana LIKE ? or last_name_kana LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
+    #else
+      #Customer.all
+    #end
+  #end
 
 
 end
