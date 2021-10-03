@@ -1,6 +1,6 @@
 class Admin::CustomersController < ApplicationController
   before_action :authenticate_admin!
-  before_action :set_q, only: [:index, :search]
+  before_action :set_q, only: [:list, :search]
 
   def index
     @customers = Customer.where.not(is_deleted: 3)
@@ -47,7 +47,7 @@ class Admin::CustomersController < ApplicationController
   #end
 
   def search
-    @results = @q.result
+    @results = @q.result.where(is_deleted: 3).page(params[:page]).reverse_order
   end
 
   private

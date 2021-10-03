@@ -7,10 +7,7 @@
       <div class="search">
         <%= search_form_for @q, url: search_admin_customers_path do |search| %>
           <%= search.label :name_cont, '利用者氏名' %>
-          <%= search.search_field :first_name %>
-          <%= search.search_field :last_name %>
-          <%= search.search_field :first_name_kana %>
-          <%= search.search_field :last_name_kana %>
+          <%= search.search_field :first_name_or_last_name_or_first_name_kana_or_last_name_kana_cont %>
           <br>
           <%= search.submit '検索' %>
         <% end %>
