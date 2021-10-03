@@ -12,7 +12,7 @@
     <div class="col-sm-4">
       <div class="tbl-cst-idx">
         <ul>
-          <% @customers.each do |customer| %>
+          <% @results.each do |customer| %>
             <li>
               <%= link_to admin_customer_path(customer) do %>
                 <%= customer.full_name %>
@@ -20,7 +20,7 @@
             </li>
           <% end %>
         </ul>
-        <%= paginate @customers %>
+        <%= paginate @results %>
       </div>
     </div>
     <div class="col-sm-4"></div>
