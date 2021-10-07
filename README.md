@@ -69,24 +69,25 @@ I used devise's overwrite to solve this.
    Ruby 2.6.3<br>
    JavaScript<br>
    HTML & CSS<br>
-   
+
 〇 Framework<br>
    Ruby on Rails 5.2.4
-   
+
 〇 Infrastructure / development environment<br>
    AWS
-   
+
 〇DB<br>
    mysql2
-   
+
 〇 Used Gem
    devise<br>
    bootstrap 3<br>
    kaminari 1.2.1<br>
-   pry-rails
-   
+   pry-rails<br>
+   ransack<br>
+   rspec-rails<br>
+   capybara
+
 [What I want to do from now on]<br>
-・ Introduce Vue.js to enable record entry via asynchronous communication<br>
-・ Implementation of RSpec test<br>
 ・ Implementation of a function to send a contact email to the registered staff account<br>
 ・Implementation of a function that records attendance records at the same time as staff login<br>
